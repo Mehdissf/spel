@@ -21,11 +21,3 @@ class Item():
 
     def STR_bonus(self):
         print(self.STR)
-
-
-
-
-# Spleren ska kunna ha tillgång till olika utrustningar för att kunna slåss mot monstern
-list.item = ["rustning, sköld, svärd"]
-print("Du hittar tre vappen i en buske")
-item = input("Välj en utrustning: ")
