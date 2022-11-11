@@ -2,6 +2,7 @@ import random
 import time
 
 print("hej")
+print("Det här är elliots ändring")
 def cls():
     print("\n" * 70)   
 
