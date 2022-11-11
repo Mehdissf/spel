@@ -1,5 +1,7 @@
 import random
 import time
+
+print("hej")
 def cls():
     print("\n" * 70)   
 
