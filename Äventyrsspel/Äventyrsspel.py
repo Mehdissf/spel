@@ -1,20 +1,13 @@
 import random
 import time
 import os
-from Items import *
-from Loot import *
+# from Items import *
+# from Loot import *
 from Player import *
 os.system('cls')
 
+from monster import *
 
-class monster(object):
-    def _init_(self,namn,HP,STR,DEF):
-        self.namn="Elliot"
-        self.HP=80
-        self.STR=10
-        self.DEF=3
-
-     
 def fälla_scen():
     os.system('cls')
     print("""
@@ -34,6 +27,10 @@ def monster_scen():
 Du hitta nu ett mörkt läskigt rum med ett fasansfullt monster
 =================================================================
     """)
+    print(f'Monstret heter{monster.namn}')        
+    print(f'Styrka {monster.STR}')
+    print(f'HP {monster.HP}')
+    
 def kista_scen():
     os.system('cls')
     print("""
@@ -65,16 +62,17 @@ Välj en av dörrarna nedan för att gå vidare:
 """)
     while True:
         val = input("Vilken dörr väljer du??")
-        val = random.randint("1", "2", "3")
-        if val == "1":
+        val = random.randint(1, 3)
+        if val == 1:
             fälla_scen()
         elif val =="2":
             monster_scen()
         elif val =="3":
             kista_scen()
         else:
-            print("Välj rätt siffra")
             os.system('cls')
+            print("Välj rätt siffra '1', '2' eller '3'")
+            
         return
 
 # def bakom_dörrar():
@@ -103,7 +101,7 @@ Välj en av dörrarna nedan för att gå vidare:
 
         
 def start():
-                startsida_alternativ = ["1","2",]
+                startsida_alternativ = ["1","2","3"]
                 Players_val2 = ""
                 while Players_val2 not in startsida_alternativ:  #vi kan också skapa en ny funkttion för startsidan istället för att skriva allt här i alternativ 1)
                     os.system('cls')
@@ -123,6 +121,7 @@ def start():
 =====================
     1) Fortsätt 
     2) Tillbaka till meny
+    3) Profil
 
             """)
                     Players_val2 = input("\n\n Ange ditt alternativ här: ")
@@ -135,6 +134,15 @@ def start():
                     elif Players_val2 == "2":
                         os.system('cls')
                         main()
+                    elif Players_val2 == "3":
+                        os.system('cls')
+                        print(f"HP {Player_1.HP}")
+                        print(f"Styrka {Player_1.STR}")
+                        print(f"Level {Player_1.LVL}")
+                        input("Tryck enter för att fortsätta.")
+                        os.system('cls')
+
+                        return
                     return
 
 def main():
@@ -185,7 +193,3 @@ main()
 
 
 
-# Monster
-
-
-# class Hitler()
