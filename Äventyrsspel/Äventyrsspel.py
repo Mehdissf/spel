@@ -1,13 +1,49 @@
 import random
 import time
-# from Items import *
-# from Loot import *
-# from Player import *
+import os
+from Items import *
+from Loot import *
+from Player import *
+os.system('cls')
 
-def cls():
-    print("\n" * 70)   
+
+class monster(object):
+    def _init_(self,namn,HP,STR,DEF):
+        self.namn="Elliot"
+        self.HP=80
+        self.STR=10
+        self.DEF=3
+
+     
+def fälla_scen():
+    os.system('cls')
+    print("""
+============================================================================
+Du har hamnat i helvetet(borås) nu på grund av alla dina oförlåtna synder
+============================================================================
+    """
+    #Spelaren ska hinna med att skriva någonting väldigt fort för att kunna överleva från fällan ------>>
+    #splearen dör/förlorar HP beroende av typ av fälla
+    #Fälllor ska slumpvis lottas ut vid varje gång 
+    
+    )
+def monster_scen():
+    os.system('cls')
+    print("""
+=================================================================
+Du hitta nu ett mörkt läskigt rum med ett fasansfullt monster
+=================================================================
+    """)
+def kista_scen():
+    os.system('cls')
+    print("""
+=======================================    
+Denna dörr leder dig till guldkista
+=======================================
+    """)
+    
 def dörrar():
-
+    os.system('cls')
     print("""
 ============================================
 Välj en av dörrarna nedan för att gå vidare: 
@@ -27,11 +63,50 @@ Välj en av dörrarna nedan för att gå vidare:
            |__________|   |__________|   |__________|
             (1)            (2)            (3)
 """)
+    while True:
+        val = input("Vilken dörr väljer du??")
+        val = random.randint("1", "2", "3")
+        if val == "1":
+            fälla_scen()
+        elif val =="2":
+            monster_scen()
+        elif val =="3":
+            kista_scen()
+        else:
+            print("Välj rätt siffra")
+            os.system('cls')
+        return
+
+# def bakom_dörrar():
+    # val = input("1, 2 eller 3: ")
+
+    # if val == "1":
+    #     random.lista(kista, fälla, monster)
+    #     print(f"Du träffade {listan} och förlorade 10 hp")
+    #         if Player.HP < Monster.HP:
+    #             print("Knas monstret har jämnt ut dig med marken")
+    #         elif Player.HP > Monster.HP:
+    #             print("Yayyyy boyyyy du vann GRATTIS")
+    # # elif val == "2": 
+    #     random.lista(kista, fälla, monster)
+    #     print(f"du har hamnat med{}")
+    #         #Playern får endast ta tre items
+    #         # Vid användning av item så ska den öka PLayers HP, STR eller DEF beroende av vilken egenskap item har
+    # elif val == "3":
+    #     print(f" du har hamnar i rum 3 och möter nu {}")
+    #     random.lista(kista, fälla, monster)
+    #         if Player.HP < Fälla: 
+    #             print("Du dog vila i frid min broder")
+    #         elif Player.HP > Fälla: #Här ska fällan minska Players HP 
+        
+
+
+        
 def start():
-                startsida_alternativ = ["1", "2","3"]
+                startsida_alternativ = ["1","2",]
                 Players_val2 = ""
                 while Players_val2 not in startsida_alternativ:  #vi kan också skapa en ny funkttion för startsidan istället för att skriva allt här i alternativ 1)
-                    cls()
+                    os.system('cls')
                     print("""       
 ===========================================================================================
     Det är nu sommaren år 2050.                                                                            
@@ -52,15 +127,15 @@ def start():
             """)
                     Players_val2 = input("\n\n Ange ditt alternativ här: ")
                     if Players_val2 == "1":
+                        os.system('cls')
                         dörrar()
+                        return
+                        
+                        
                     elif Players_val2 == "2":
+                        os.system('cls')
                         main()
-
-
-
-
-
-
+                    return
 
 def main():
     # time.sleep(0.75)  Vi måte fördröja fraserna
@@ -82,13 +157,14 @@ def main():
  
         Players_val = input("\n \n Ange ditt alternativ här: ")
         if Players_val =="1":    #Här kallas på def star()
-                cls()
+                os.system('cls')
                 start()
         elif Players_val == "3":    #Här kallas der på def hjälplistan()
+                os.system('cls')
                 hjälplistan()
       
         elif Players_val == "2":    #Spelet avslutas 
-                cls()
+                os.system('cls')
                 print("""
 ===============
     Hej dååå!!
@@ -102,7 +178,6 @@ def main():
     Du får endast skriva in siffrorna "1", "2", "3" för att gå vidare så skriv in rätt nu tack HAJJJWAAANN!!!
 ================================================================================================================
                 """)
-            main()
                        
 main()
 
@@ -110,10 +185,7 @@ main()
 
 
 
-
 # Monster
-# class goblin(object):
-#     namn = "Elliot"
-#     HP = 10
-#     STR = 2
-#     DEF = 3
+
+
+# class Hitler()
