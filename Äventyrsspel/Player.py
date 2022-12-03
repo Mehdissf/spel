@@ -1,6 +1,8 @@
 class Player():
-    def __init__(self,HP,STR,LVL):
+    def __init__(self,HP,STR,LVL,pengar):
         self.HP=HP
         self.STR=STR
         self.LVL=LVL
-Player_1=Player(100,20,10)
+        self.pengar=pengar
+
+Player_1=Player(100,20,0,100)
