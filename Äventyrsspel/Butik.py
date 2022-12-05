@@ -1,22 +1,22 @@
 from Player import *
 import os 
-os.system('cls')
+# import Äventyrsspel
+
 
 #Det går inte använda denna funk i spelet vi får lösa det
 def butik():
     Alternativ = ["1","2","3","4"]
-    # val_shelf == ""
+    val_shelf = ""
     while val_shelf not in Alternativ:
-        os.system('cls')
         print(f"Ditt saldo är {Player_1.pengar}$")
         print("""
-    ===============================================
+===============================================
     Välkommnen till Jamal och brödernas butik!
     Kika på våra fantastiska vapen!
-    ===============================================
-    ===============================================
+===============================================
+===============================================
     Här finnns olika hyllor vilken väljer du? 
-    ===============================================
+===============================================
     1) yxor              3) Medicin 
     2) Skjutvapen        4) tillbaka 
     """)
@@ -26,18 +26,20 @@ def butik():
             print("""
     Yxor:                               
         /\ 
-    //`-||-'\\
-    (| -=||=- |)
-    \\,-||-.//
-    `  ||  '
-        ||  Mehdis Yxa
-        ||  ========
-        ||  | 200$ |
-        ||  ======== 
+    //`-||-'\\'
+    (|-=||=- |)                          |==================|
+    \\,-||-.//                           |Namn = Mehdis Yxa |
+    `   ||  '                            |Pris = 200$       |
+        ||                               |Strength_bonus = 5|
+        ||                               |==================|
+        ||  
+        ||   
         ||
         ()
 
             """)
+            input("sijdbsovnodnvs")
+            os.system('cls')
         if val_shelf == "2":
             os.system('cls')
             print("""
@@ -46,11 +48,12 @@ def butik():
             _________
             /'        /|
             /         / |_
-        /         /  //|
-        /_________/  ////|
-        |   _ _    | 8o////|
-        | /'// )_  |   8///|
-        |/ // // ) |   8o///|
+        /         /  //|                 |====================|
+        /_________/  ////|               |Namn = KSP 58       |
+        |   _ _    | 8o////|             |Pris = 1000$        |                  
+        |   _ _    | 8o////|             |Strength_bonus = +20|   
+        | /'// )_  |   8///|             |====================|
+        |/ // // ) |   8o///|                
         / // // //,|  /  8//|           
         / // // /// | /   8//|
     / // // ///__|/    8//|
@@ -65,16 +68,30 @@ def butik():
         d'      `b `b
         d'           `b
         d'             `b
-            
+           
+        |
+        
+        |======|
             """)
+            input("Hjsicndaonca")
+            os.system('cls')
         if val_shelf == "3":
             os.system('cls')
-            print("Hej världen")
-        
+            print(""" 
+            
+  /==========================1
+ / : : : : : |::::| : : : : : 1          |===============|
+{ : : : : : :|::::|: : : : : : }         |Namn = plåster |
+ \ : : : : : |::::| : : : : : /          |Pris = 20$     |
+  \==========================/           |HP_bonus = +10 |
+                                         |===============|
+            """)
+            input("jnsidbcbdscbdsc")
+            os.system('cls')
+
         if val_shelf == "4":
             os.system('cls')
             butik()
-            return
         else:
             print("Välj rätt siffta")
         return butik() #går inte att kalla på denna funktion från startlistna

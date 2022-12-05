@@ -7,6 +7,7 @@ from Butik import *
 from Player import *
 from monster import *
 from fälla import *
+from Player import *
 os.system('cls')
 
 
@@ -14,53 +15,73 @@ os.system('cls')
 def fälla_scen():
     os.system('cls')
     fälllistan = [Lava, Helvete,Spökhus]
-    random.choice(fälllistan)
+    vald_fälla = random.choice(fälllistan)
     print(f"""
 ============================================================================
-Du har hamnat i{fälllistan} nu i Boräs på grund av alla dina oförlåtna synder
+Du har hamnat i {vald_fälla.namn} nu i Boräs på grund av alla dina oförlåtna synder
 ============================================================================
-
-
     """)
-    #Spelaren ska hinna med att skriva någonting väldigt fort för att kunna överleva från fällan ------>>
+   #Spelaren ska hinna med att skriva någonting väldigt fort för att kunna överleva från fällan ------>>
     #splearen dör/förlorar HP beroende av vilken typ av fälla
     #Fälllor ska slumpvis lottas ut vid varje gång 
-    print("För att komma undan denna fälla så ska skriva så snabbt som möjligt det ordet som dykes upp nu")
-    time.sleep(0,3)
-    LVL1_ord = ["Hej", "Teknik", "Ellior", "Mehdi"]
-    ord = random.choice(LVL1_ord)
-    starttid = time.time()
-    hej = print("Du har 3 sekunder på dig att skriva ordet: {} \n" .format(ord))
-    
-    while time.time() - starttid > 3 or hej != ord:
-        print(f"Tiden är ute nu du förlorade{Fälla.skada}")
-        print(f"Ditt HP nu är {Player_1.HP - Fälla.skada}")
-        if Player_1.HP == 0 or Player_1.HP < 0:
-                print("Vila i frid min broder")
+    if vald_fälla.namn == Lava or vald_fälla == Helvete or vald_fälla == Spökhus:
+        print("För att komma undan denna fällan måste du skriva så snabbt som möjligt det ordet som dykes upp nu")
+        LVL1_ord = ["Hej", "Teknik", "Elnur", "Mehdi"]
+        ord = random.choice(LVL1_ord)
         starttid = time.time()
-    print("Bra jobbat!! Du kom undan fällan")
-    print("Varsågod!! Du får 20$ pris")  #Här behövs det att 20$ ska läggas till de pengar spelaren har :)
+        skriv_ord = print(f"Du har 3 sekunder på dig att skriva ordet: \n {ord}" .format(ord)) #format gör så att man kan skriva 
+        
+        while time.time() - starttid > 3:
+            print(f"Tiden är ute nu du förlorade{vald_fälla.namn}")
+            print(f"Ditt HP nu är {Player_1.HP - vald_fälla.skada}")
+            if Player_1.HP == 0 or Player_1.HP < 0:
+                    print("Vila i frid min broder, du dog!!!")
+                    inp = input("Tryck [Enter]")
+                    if inp == "":
+                        start()
+                    
+                    
+
+
+                    #Här ska splearen kunna ha möjligheten att komma tillbaka till startsidan
+            starttid = time.time()
+        else:
+            print("Bra jobbat!! Du kom undan fällan")
+            print("Varsågod!! Du får 20$ pris")  #Här behövs det att 20$ ska läggas till de pengar spelaren har :)
+
     
 def monster_scen():
     os.system('cls')
     print("""
 =================================================================
 Du hittade nu ett mörkt läskigt rum med ett fasansfullt monster
+Vad väljer du?
+1) Slåss
+2) Fly
 =================================================================
     """)
-    print(f"OObbsiii du har stött på ett monstret{Elliot.namn} han är en farlig varelse och här nedan ser du hans status")
-    time.sleep(0,1)
-    print(f'Monstret heter{Elliot.namn}')        
-    print(f'Styrka {Elliot.STR}')
-    print(f'HP {Elliot.HP}')  
+    monster_val= input("Ditt val: ")
+    if monster_val=="1":
+        print(f"Opsiii du har stött på monstret {x.namn}, han är en farlig varelse och här nedan ser du hans status")
+        print(f'Monstret heter {x.namn}')        
+        print(f'Styrka {x.STR}')
+        print(f'HP {x.HP}') 
+    elif monster_val== "2":
+        dörrar()
+    else:
+        os.system('cls')
+        print("Välj mellan 1 eller 2")
+        
 def kista_scen():
 
     os.system('cls')
     print("""
 =======================================    
-Denna dörr leder dig till guldkista
+Du hittat en kista!!
+Tryck [Enter] för att fortsätta till kistan!
 =======================================
-    """) 
+    """)
+    input("Skriv") #tillfällig kod
 
 #En utgång till dörr funktionen behövs så spelaren kan backa till start funktionen
 #Jag (Mehdi) har försökt lösa det men lcykades inte vi får fixa det senare
@@ -69,38 +90,45 @@ def dörrar():
     while True:
         os.system('cls')
         print("""
-============================================
-Välj en av dörrarna nedan för att gå vidare: 
-============================================
-            __________     __________     __________
-           |  __  __  |   |  __  __  |   |  __  __  |       
-           |  __  __  |   |  __  __  |   |  __  __  |       
-           | |  ||  | |   | |  ||  | |   | |  ||  | |          
-           | |  ||  | |   | |  ||  | |   | |  ||  | |        
-           | |__||__| |   | |  ||  | |   | |  ||  | |
-           |  __  __()|   |  __  ()  |   |  __  __()|
-           | |  ||  | |   | |  ||  | |   | |  ||  | |
-           | |  ||  | |   | |  ||  | |   | |  ||  | |
-           | |  ||  | |   | |  ||  | |   | |  ||  | |
-           | |  ||  | |   | |  ||  | |   | |  ||  | |
-           | |__||__| |   | |  ||  | |   | |  ||  | |
-           |__________|   |__________|   |__________|
-            (1)            (2)            (3)
+|============================================|
+|Välj en av dörrarna nedan för att gå vidare:|
+|============================================|
+    __________     __________     __________
+    |  __  __  |   |  __  __  |   |  __  __  |       
+    |  __  __  |   |  __  __  |   |  __  __  |       
+    | |  ||  | |   | |  ||  | |   | |  ||  | |          
+    | |  ||  | |   | |  ||  | |   | |  ||  | |        
+    | |__||__| |   | |  ||  | |   | |  ||  | |
+    |  __  __()|   |  __  ()  |   |  __  __()|
+    | |  ||  | |   | |  ||  | |   | |  ||  | |
+    | |  ||  | |   | |  ||  | |   | |  ||  | |
+    | |  ||  | |   | |  ||  | |   | |  ||  | |
+    | |  ||  | |   | |  ||  | |   | |  ||  | |
+    | |__||__| |   | |  ||  | |   | |  ||  | |
+    |__________|   |__________|   |__________|
+    (1)            (2)            (3)
 """)
-        print("""OBS! Det kan antingen finnas ett monster/ en fälla eller en kista bakom dörrarna
-        
-        Tillbaka till förra sidan [b]
+        print("""
+|================================================================================ |
+| OBS! Det kan antingen finnas ett monster/ en fälla eller en kista bakom dörrarna|
+|                                                                                 |
+| Tillbaka till förra sidan [b]                                                   |
+|================================================================================ |
         """)
         val = input("Ditt val: ")
-        val = random.randint(1, 3)
-        if val == "1":
+        if val == "b":
+            os.system('cls')
+            return
+
+        Dörrar =["1","2","3"]
+        dörr = random.choice(Dörrar)
+        
+        if dörr == "1":
             fälla_scen()
-        elif val =="2":
+        elif dörr =="2":
             monster_scen()
-        elif val =="3":
+        elif dörr =="3":
             kista_scen()
-        elif val == "b": # funkar inte
-            start()
         else:
             os.system('cls')
             print("Välj rätt värde '1', '2, '3' eller 'b'") #Funkar inte       
@@ -146,13 +174,13 @@ def start():
                         start()
                         os.system('cls')
                     elif Players_val2 == "4":
-                        os.system('cls')               #Det är ett grovt allvarligt problem här 
-                        butik()           
+                        os.system('cls')             
+                        return butik()           
                     else: 
-                        print("Skriv rätt siffra ")
-                    return
+                        os.system('cls')
+                        print("Skriv rätt siffra 1, 2 eller 3")  #Funkar inte 
+                    
 def main():
-    # time.sleep(0.75)  Vi måte fördröja fraserna
     while True:
         Players_val = ""
         print('''
@@ -180,9 +208,9 @@ def main():
         elif Players_val == "2":    #Spelet avslutas 
                 os.system('cls')
                 print("""
-    ===============
-        Hej dååå!!
-    ===============
+|================|
+|   Hej dååå!!   |
+|================|
                 """)
                 break
         else:
