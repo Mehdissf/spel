@@ -5,6 +5,7 @@ import os
 
 #Det går inte använda denna funk i spelet vi får lösa det
 def butik():
+    os.system('cls')
     Alternativ = ["1","2","3","4"]
     val_shelf = ""
     while val_shelf not in Alternativ:
@@ -26,9 +27,9 @@ def butik():
             print("""
     Yxor:                               
         /\ 
-    //`-||-'\\'
+    //`-||-'1\'
     (|-=||=- |)                          |==================|
-    \\,-||-.//                           |Namn = Mehdis Yxa |
+    \L,-||-.//                           |Namn = Mehdis Yxa |
     `   ||  '                            |Pris = 200$       |
         ||                               |Strength_bonus = 5|
         ||                               |==================|
@@ -92,6 +93,7 @@ def butik():
         if val_shelf == "4":
             os.system('cls')
             butik()
+            return butik()
         else:
             print("Välj rätt siffta")
         return butik() #går inte att kalla på denna funktion från startlistna

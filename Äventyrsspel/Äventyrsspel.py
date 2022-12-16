@@ -48,7 +48,6 @@ Du har hamnat i {vald_fälla.namn} nu i Boräs på grund av alla dina oförlåtn
         else:
             print("Bra jobbat!! Du kom undan fällan")
             print("Varsågod!! Du får 20$ pris")  #Här behövs det att 20$ ska läggas till de pengar spelaren har :)
-
     
 def monster_scen():
     os.system('cls')
@@ -155,7 +154,6 @@ def start():
     2) Tillbaka till meny
     3) Se din profil
     4) Butik
-
             """)
                     Players_val2 = input("\n\n Ditt val: ")
                     if Players_val2 == "1":
