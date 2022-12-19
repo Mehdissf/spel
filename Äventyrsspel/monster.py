@@ -9,6 +9,6 @@ Hitler= Monster("Hitler",90,110)
 Gargamel= Monster("Gargamel", 60,120)
 
 lista =[Elliot, Hitler, Gargamel]
-x=lista[random.randint(0,2)]
+valt_monster=lista[random.randint(0,2)]
 
 

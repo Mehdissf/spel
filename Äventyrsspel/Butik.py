@@ -1,10 +1,8 @@
 from Player import *
 import os 
-# import Äventyrsspel
+import time
 
-
-#Det går inte använda denna funk i spelet vi får lösa det
-def butik():
+def butik(Player_1):
     os.system('cls')
     Alternativ = ["1","2","3","4"]
     val_shelf = ""
@@ -41,6 +39,8 @@ def butik():
             """)
             input("sijdbsovnodnvs")
             os.system('cls')
+            return Player_1
+        
         if val_shelf == "2":
             os.system('cls')
             print("""
@@ -76,9 +76,11 @@ def butik():
             """)
             input("Hjsicndaonca")
             os.system('cls')
+            return Player_1
+
         if val_shelf == "3":
             os.system('cls')
-            print(""" 
+            köp_plåster = input(""" 
             
   /==========================1
  / : : : : : |::::| : : : : : 1          |===============|
@@ -86,17 +88,44 @@ def butik():
  \ : : : : : |::::| : : : : : /          |Pris = 20$     |
   \==========================/           |HP_bonus = +10 |
                                          |===============|
+            Vill du köpa?
+            1) Köp
+            2) Tillbaka
             """)
-            input("jnsidbcbdscbdsc")
-            os.system('cls')
+            
+            while True:
+                if köp_plåster == "1":
+                    if Player_1.pengar < 20:
+                        os.system('cls')
+                        print("Du har för lågt saldo!!")
+                        break
 
+                    else:
+                        os.system('cls')
+                        Player_1.pengar -= 20
+                        print("Plåstern kostade 20$")
+                        time.sleep(1)
+                        print("Du har en plåster nu i din ryggsäck") #Plåstern ska läggas till i PLayers ryggsäck
+                        print(f"Ditt saldo nu är {Player_1.pengar}")
+                        input("Tryck enter för att gå vidare")
+                        break
+
+                elif köp_plåster == "2":
+                    break
+                
+                else:
+                    os.system('cls')
+                    print("Skriv rätt!!")
+            val_shelf = ""
+              
         if val_shelf == "4":
             os.system('cls')
-            butik()
-            return butik()
+            return Player_1
         else:
+            os.system('cls')
             print("Välj rätt siffta")
-        return butik() #går inte att kalla på denna funktion från startlistna
+    
+    
 
 
 
