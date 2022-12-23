@@ -154,7 +154,6 @@ def dörrar(Player_1):
             print(f"Level {Player_1.LVL}")
             print(f"Dina pengar {Player_1.pengar}$")
             input("okej? [Tryck enter].")
-            continue
         elif val == "1":
             os.system('cls')
             fälla_scen()
@@ -207,7 +206,6 @@ def start(Player_1):
                         print(f"Dina pengar {Player_1.pengar}$")
                         input("okej? [Tryck enter].")
                         os.system('cls')
-                        continue
                         
                     elif Players_val2 == "4":
                         os.system('cls')
@@ -220,7 +218,7 @@ def start(Player_1):
                     
                     
 def main():
-    Player_1=Player(100,20,0,100)
+    Player_1=Player(100,20,1,100)
     while True:
         Players_val = ""
         print('''
@@ -228,12 +226,11 @@ def main():
  Hej och välkomna till äventyrsspelet skapat av Mahdi och Elliot------>>>> 
 ===================================================================
 ==========================================
-    Välj ett av de alternativen nedan 
+    Välj ett av de alternativen nedan för att gå vidare
 ==========================================
 
             1) Starta spelet 
             2) Lämna spelet 
-            3) Hjälp
         
             ''')
  
@@ -241,9 +238,6 @@ def main():
         if Players_val =="1":    #Här kallas på def star()
                 os.system('cls')
                 Player_1 = start(Player_1)
-        elif Players_val == "3":    #Här kallas der på def hjälplistan()
-                os.system('cls')
-                hjälplistan()
       
         elif Players_val == "2":    #Spelet avslutas 
                 os.system('cls')
@@ -266,8 +260,6 @@ def main():
 ================================================================================================================
                 """)
 
-
-if __name__ == "__main__":
-    main() 
+main() 
 
 

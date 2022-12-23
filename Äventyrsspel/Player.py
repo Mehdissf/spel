@@ -5,5 +5,5 @@ class Player():
         self.LVL=LVL
         self.pengar=pengar
         
-Player_1=Player(100,20,0,100)
+Player_1=Player(100,20,1,100)
 
