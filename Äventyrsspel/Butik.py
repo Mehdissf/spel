@@ -105,8 +105,10 @@ def butik(Player_1):
                         Player_1.pengar -= 20
                         print("Plåstern kostade 20$")
                         time.sleep(1)
-                        print("Du har en plåster nu i din ryggsäck") #Plåstern ska läggas till i PLayers ryggsäck
-                        print(f"Ditt saldo nu är {Player_1.pengar}")
+                        print("Du har en plåster nu i din ryggsäck")
+                        Player_1.HP += 10
+                        print(f"Ditt HP är nu {Player_1.HP}")
+                        print(f"Ditt saldo är nu {Player_1.pengar}")
                         input("Tryck enter för att gå vidare")
                         break
 

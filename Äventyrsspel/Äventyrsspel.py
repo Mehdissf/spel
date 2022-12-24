@@ -14,58 +14,54 @@ os.system('cls')
    #Spelaren ska hinna med att skriva någonting väldigt fort för att kunna överleva från fällan ------>>
     #splearen dör/förlorar HP beroende av vilken typ av fälla
     #Fälllor ska slumpvis lottas ut vid varje gång 
-def fälla_scen(Player_1):
+def falla_scen(Player_1):
     os.system('cls')
-    fälllistan = [Lava, Helvete,Spökhus]
+    fälllistan = [Lava, Helvete, Spökhus]
     vald_fälla = random.choice(fälllistan)
+    ord = ["Hej", "Teknik", "Elnur", "Mehdi"]
+    target_ord = random.choice(ord)
     print(f"""
 ============================================================================
-Du har hamnat i {vald_fälla.namn} nu i Boräs på grund av alla dina oförlåtna synder
+Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina oförlåtna synder
 ============================================================================
     """)
-    limittid = 5
-    starttid = time.time()
-    sluttid = time.time()
-    LVL1_ord = ["Hej", "Teknik", "Elnur", "Mehdi"]
-    ord = random.choice(LVL1_ord)
-    elapsed_tid = sluttid - starttid
-    if vald_fälla.namn == "Lava":
-        print("Du har hamnat i lava nu om du inte lyckas komma undan den så dör du!!! Följ instruktionerna tydligt")
-        print("För att komma undan denna fällan måste du skriva så snabbt som möjligt det ordet som dykes upp nu")
-        print(f"Du har 5 sekunder på dig att skriva ordet: \n {ord}")
-        time.sleep(1)    
-        user_input = input("Skriv ordet nu: ")
-        if user_input == ord and elapsed_tid <= limittid:
-            print("Grattis!! Du kom undan lavan")
-            Player_1.pengar += 300
+    print(f"Du har 5 sekunder på dig att skriva ordet: \n {target_ord}" )
+    start_tid = time.time()
+    while time.time() - start_tid < 5:
+        sekunder_kvar = 5 - (time.time() - start_tid)
+        print(f"Du har {sekunder_kvar:.0f} sekunder kvar")
+        inp = input("Skriv här: ")
+        if inp == target_ord and time.time() - start_tid <= 5:
+            print("Grattis du kom undan fällan")
             print("Du fick 300$")
+            Player_1.pengar += 300
+            input("Tryck [ENTER]: ")
             return Player_1
-        else:
-            print("Du misslyckades att komma undan fällan, du dog nu")
-            Player_1.HP -= Lava.skada
+        elif time.time() - start_tid > 5: 
+            if vald_fälla == "Lava": #Här vet jag fan inte vad jag ska göra efter man dör asså
+                print("Vila i frid!!")
+                time.sleep(0.5)
+                print("Ingen har lyckats med att hitta din lik, den är förmodligen smält och har omvandlat sig till rök")
+                Player_1.HP -= Lava.skada
+                input("Tryck [ENTER]:")
+                break
+            elif vald_fälla.namn == "Helvete":
+                print(f"Helvete har gett dig {Helvete.skada} skada")
+                print(f"Ditt HP är nu {Player_1.HP - Helvete.skada}")
+                Player_1.HP -= Helvete.skada
+                input("Tryck [ENTER]: ")
+                break
+            elif vald_fälla.namn == "Spökhus":
+                print(f"Spökhus gav dig {Spökhus.skada}")
+                print(f"Ditt HP är nu {Player_1.HP - Spökhus.skada}")
+                Player_1.HP -= Spökhus.skada
+                input("Tryck [ENTER]: ")
+                break
             return Player_1
-            
+        else: 
+            print("Försök igen ")        
     return Player_1
-
-
-       
-
-        # while time.time() - starttid > 3:
-        #     print(f"Tiden är ute nu du förlorade{vald_fälla.namn}")
-        #     print(f"Ditt HP nu är {Player_1.HP - vald_fälla.skada}")
-        #     if Player_1.HP == 0 or Player_1.HP < 0:
-        #             print("Vila i frid min broder, du dog!!!")
-        #             inp = input("Tryck [Enter]")
-        #             if inp == "":
-        #                 start()
-                    
-                    
-        #             #Här ska splearen kunna ha möjligheten att komma tillbaka till startsidan
-        #     starttid = time.time()
-        # else:
-        #     print("Bra jobbat!! Du kom undan fällan")
-        #     print("Varsågod!! Du får 20$ pris")  #Här behövs det att 20$ ska läggas till de pengar spelaren har :)
-
+    
 def monster_scen(Player_1):
     os.system('cls')
     while True: 
@@ -108,9 +104,6 @@ Tryck [Enter] för att fortsätta till kistan!
 =======================================
     """)
     input("Skriv") #tillfällig kod
-
-#En utgång till dörr funktionen behövs så spelaren kan backa till start funktionen
-#Jag (Mehdi) har försökt lösa det men lcykades inte vi får fixa det senare
 def dörrar(Player_1):
     
     while True:
@@ -156,7 +149,7 @@ def dörrar(Player_1):
             input("okej? [Tryck enter].")
         elif val == "1":
             os.system('cls')
-            fälla_scen()
+            falla_scen(Player_1)
         elif val =="2":
             os.system('cls')
             monster_scen(Player_1)
