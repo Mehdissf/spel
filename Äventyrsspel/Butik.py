@@ -99,19 +99,24 @@ def butik(Player_1):
                         os.system('cls')
                         print("Du har för lågt saldo!!")
                         break
-
                     else:
-                        os.system('cls')
-                        Player_1.pengar -= 20
-                        print("Plåstern kostade 20$")
-                        time.sleep(1)
-                        print("Du har en plåster nu i din ryggsäck")
-                        Player_1.HP += 10
-                        print(f"Ditt HP är nu {Player_1.HP}")
-                        print(f"Ditt saldo är nu {Player_1.pengar}")
-                        input("Tryck enter för att gå vidare")
-                        break
-
+                        if Player_1.HP >= ursprungliga_HP:
+                            os.system('cls')
+                            print(f"Ditt HP får ej överstiga {ursprungliga_HP}")
+                            input("Tryck [ENTER]")
+                            break
+                        else:
+                            os.system('cls')
+                            Player_1.pengar -= 20
+                            print("Plåstern kostade 20$")
+                            print("Du har en plåster nu i din ryggsäck")
+                            time.sleep(0.5)
+                            Player_1.HP += 10
+                            print(f"Du har {Player_1.HP} HP nu")
+                            time.sleep(0.5)
+                            print(f"Pengar kvar: {Player_1.pengar}")
+                            input("Tryck enter för att gå vidare")
+                            break
                 elif köp_plåster == "2":
                     break
                 

@@ -32,9 +32,12 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
         print(f"Du har {sekunder_kvar:.0f} sekunder kvar")
         inp = input("Skriv här: ")
         if inp == target_ord and time.time() - start_tid <= 5:
-            print("Grattis du kom undan fällan")
-            print("Du fick 300$")
+            os.system('cls')
+            print("Grattis!!!!! du kom undan fällan")
+            time.sleep(0.5)
             Player_1.pengar += 300
+            print(f"Det tog dig {time.time() - start_tid:.0f} sekunder")
+            print("Du får 300$")
             input("Tryck [ENTER]: ")
             return Player_1
         elif time.time() - start_tid > 5: 
@@ -65,36 +68,32 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
 def monster_scen(Player_1):
     os.system('cls')
     while True: 
+        print(f"Du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
+        print(f"""{valt_monster.figur}""")
+        print(f'Monstrets namn {valt_monster.namn}')        
+        print(f'Styrka {valt_monster.STR}')
+        print(f'HP {valt_monster.HP}') 
         print("""
 =================================================================
-    Du hittade nu ett mörkt läskigt rum med ett fasansfullt monster
     Vad väljer du?
-    1) Slåss
+    1) Fortsätt
     2) Fly
 =================================================================
         """)
-        monster_val= input("Ditt val: ")
+        monster_val= input()
         if monster_val=="1":
-            print(f"Opsiii du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
-            print(f'Monstret heter {valt_monster.namn}')        
-            print(f'Styrka {valt_monster.STR}')
-            print(f'HP {valt_monster.HP}') 
+            while Player_1.HP != 0:
+                print("EHJ")
 
-            if valt_monster.HP>0:
-                valt_monster.HP -= Player_1.STR
-                print(f'{valt_monster.namn} har HP {valt_monster.HP}')
-            elif valt_monster.HP <= 0:
-                print('Du vann')
-                Player_1.pengar= Player_1.pengar + 50
-                Player_1.LVL=Player_1.LVL + 1
         elif monster_val== "2":
-            return Player_1
+            break
         else:
             os.system('cls')
             print("Välj mellan 1 eller 2")
         return Player_1
-
+#Monster scen är oklar
 def kista_scen():
+
 
     os.system('cls')
     print("""
@@ -109,6 +108,10 @@ def dörrar(Player_1):
     while True:
         os.system('cls')
         print("""
+
+
+
+
 |============================================|
 |Välj en av dörrarna nedan för att gå vidare:|
 |============================================|
