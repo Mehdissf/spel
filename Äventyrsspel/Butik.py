@@ -3,10 +3,11 @@ import os
 import time
 
 def butik(Player_1):
-    os.system('cls')
+    # os.system('cls')
     Alternativ = ["1","2","3","4"]
     val_shelf = ""
     while val_shelf not in Alternativ:
+        os.system('cls')
         print(f"Ditt saldo är {Player_1.pengar}$")
         print("""
 ===============================================

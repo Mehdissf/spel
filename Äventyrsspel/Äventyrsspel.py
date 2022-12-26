@@ -1,6 +1,7 @@
 import random
 import time
 import os
+import sys
 # from Items import *
 # from Loot import *
 from Butik import *
@@ -25,12 +26,15 @@ def falla_scen(Player_1):
 Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina oförlåtna synder
 ============================================================================
     """)
-    print(f"Du har 5 sekunder på dig att skriva ordet: \n {target_ord}" )
+    time.sleep(1)
+    print (f"Du har 5 sekunder på dig att skriva ordet: \n {target_ord}")
+    time.sleep(1)
     start_tid = time.time()
     while time.time() - start_tid < 5:
         sekunder_kvar = 5 - (time.time() - start_tid)
-        print(f"Du har {sekunder_kvar:.0f} sekunder kvar")
-        inp = input("Skriv här: ")
+        print(f"Sekunder kvar: {sekunder_kvar:.0f}")
+        print("SKriv nu!!!!!!!")
+        inp = input()
         if inp == target_ord and time.time() - start_tid <= 5:
             os.system('cls')
             print("Grattis!!!!! du kom undan fällan")
@@ -39,7 +43,9 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
             print(f"Det tog dig {time.time() - start_tid:.0f} sekunder")
             print("Du får 300$")
             input("Tryck [ENTER]: ")
+            os.system('cls')
             return Player_1
+            
         elif time.time() - start_tid > 5: 
             if vald_fälla == "Lava": #Här vet jag fan inte vad jag ska göra efter man dör asså
                 print("Vila i frid!!")
@@ -62,10 +68,14 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 break
             return Player_1
         else: 
-            print("Försök igen ")        
-    return Player_1
+            print("Försök igen ")
+    if Player_1.HP <= 0:
+        print("Spelaren har dött! Spelet är över.")
+        sys.exit()
+    else:
+        return Player_1
     
-def monster_scen(Player_1):
+def strid_scen(Player_1):
     os.system('cls')
     while True: 
         print(f"Du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
@@ -106,12 +116,7 @@ Tryck [Enter] för att fortsätta till kistan!
 def dörrar(Player_1):
     
     while True:
-        os.system('cls')
         print("""
-
-
-
-
 |============================================|
 |Välj en av dörrarna nedan för att gå vidare:|
 |============================================|
@@ -137,7 +142,7 @@ def dörrar(Player_1):
 | Tillbaka till förra sidan [b]          Status [s]                               |
 |================================================================================ |
         """)
-        val = input("Ditt val: ")
+        val = input()
         if val == "b":
             os.system('cls')
             print("hej")
@@ -150,18 +155,19 @@ def dörrar(Player_1):
             print(f"Level {Player_1.LVL}")
             print(f"Dina pengar {Player_1.pengar}$")
             input("okej? [Tryck enter].")
+            os.system('cls')
         elif val == "1":
             os.system('cls')
             falla_scen(Player_1)
         elif val =="2":
             os.system('cls')
-            monster_scen(Player_1)
+            strid_scen(Player_1)
         elif val =="3":
             os.system('cls')
             kista_scen()
         else:
             os.system('cls')
-            print("Välj rätt värde '1', '2, '3' eller 'b'") #Funkar inte       
+            print("Välj rätt värde '1', '2, '3', '[b] för att backa', och [s] för att se din nuvarande status") #Funkar inte       
 def start(Player_1):
                 while True:  
                     os.system('cls')
@@ -184,12 +190,11 @@ def start(Player_1):
     3) Se din profil
     4) Butik
             """)
-                    Players_val2 = input("\n\n Ditt val: ")
+                    Players_val2 = input("\n\n")
                     if Players_val2 == "1":
                         os.system('cls')
                         Player_1 = dörrar(Player_1)
-                        print(Players_val2)
-                        continue
+
 
                     elif Players_val2 == "2":
                         os.system('cls')
@@ -201,12 +206,11 @@ def start(Player_1):
                         print(f"Level {Player_1.LVL}")
                         print(f"Dina pengar {Player_1.pengar}$")
                         input("okej? [Tryck enter].")
-                        os.system('cls')
+                        continue
                         
                     elif Players_val2 == "4":
                         os.system('cls')
                         Player_1 = butik(Player_1)
-                        continue
                                
                     else: 
                         os.system('cls')
