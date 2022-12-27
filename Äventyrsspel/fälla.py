@@ -5,7 +5,7 @@ class Fälla():
         self.namn = namn
         self.skada = skada
         
-Lava = Fälla("Lava", Player_1.HP)
+Lava = Fälla("Lava", 100)
 Helvete = Fälla("Helvete", 70)
 Spökhus = Fälla("Spökhus", 30)
 

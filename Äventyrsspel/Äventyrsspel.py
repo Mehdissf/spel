@@ -11,97 +11,17 @@ from fälla import *
 from Player import *
 os.system('cls')
 
-#Mehdi : jag är inte helt klar med detta vi får jobba på det senare
-   #Spelaren ska hinna med att skriva någonting väldigt fort för att kunna överleva från fällan ------>>
-    #splearen dör/förlorar HP beroende av vilken typ av fälla
-    #Fälllor ska slumpvis lottas ut vid varje gång 
 def falla_scen(Player_1):
     os.system('cls')
-    fälllistan = [Lava, Helvete, Spökhus]
-    vald_fälla = random.choice(fälllistan)
-    ord = ["Hej", "Teknik", "Elnur", "Mehdi"]
-    target_ord = random.choice(ord)
-    print(f"""
-============================================================================
-Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina oförlåtna synder
-============================================================================
-    """)
-    time.sleep(1)
-    print (f"Du har 5 sekunder på dig att skriva ordet: \n {target_ord}")
-    time.sleep(1)
-    start_tid = time.time()
-    while time.time() - start_tid < 5:
-        sekunder_kvar = 5 - (time.time() - start_tid)
-        print(f"Sekunder kvar: {sekunder_kvar:.0f}")
-        print("SKriv nu!!!!!!!")
-        inp = input()
-        if inp == target_ord and time.time() - start_tid <= 5:
-            os.system('cls')
-            print("Grattis!!!!! du kom undan fällan")
-            time.sleep(0.5)
-            Player_1.pengar += 300
-            print(f"Det tog dig {time.time() - start_tid:.0f} sekunder")
-            print("Du får 300$")
-            input("Tryck [ENTER]: ")
-            os.system('cls')
-            return Player_1
-            
-        elif time.time() - start_tid > 5: 
-            if vald_fälla == "Lava": #Här vet jag fan inte vad jag ska göra efter man dör asså
-                print("Vila i frid!!")
-                time.sleep(0.5)
-                print("Ingen har lyckats med att hitta din lik, den är förmodligen smält och har omvandlat sig till rök")
-                Player_1.HP -= Lava.skada
-                input("Tryck [ENTER]:")
-                break
-            elif vald_fälla.namn == "Helvete":
-                print(f"Helvete har gett dig {Helvete.skada} skada")
-                print(f"Ditt HP är nu {Player_1.HP - Helvete.skada}")
-                Player_1.HP -= Helvete.skada
-                input("Tryck [ENTER]: ")
-                break
-            elif vald_fälla.namn == "Spökhus":
-                print(f"Spökhus gav dig {Spökhus.skada}")
-                print(f"Ditt HP är nu {Player_1.HP - Spökhus.skada}")
-                Player_1.HP -= Spökhus.skada
-                input("Tryck [ENTER]: ")
-                break
-            return Player_1
-        else: 
-            print("Försök igen ")
-    if Player_1.HP <= 0:
-        print("Spelaren har dött! Spelet är över.")
-        sys.exit()
-    else:
-        return Player_1
-    
-def strid_scen(Player_1):
-    os.system('cls')
-    while True: 
-        print(f"Du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
-        print(f"""{valt_monster.figur}""")
-        print(f'Monstrets namn {valt_monster.namn}')        
-        print(f'Styrka {valt_monster.STR}')
-        print(f'HP {valt_monster.HP}') 
-        print("""
-=================================================================
-    Vad väljer du?
-    1) Fortsätt
-    2) Fly
-=================================================================
-        """)
-        monster_val= input()
-        if monster_val=="1":
-            while Player_1.HP != 0:
-                print("EHJ")
+    #Spelaren ska hinna med att skriva ett ord väldigt fort för att kunna överleva från fällan ------>>
+    #splearen förlorar HP om den misslyckas
+    #Fälllor ska slumpvis lottas ut vid varje iteration
+    #Om spelaren dör av en fälla -----> Spelet avslutas  -----> går tillbaka till första sidan och allt återställs 
+    Player.falla(Player_1)
 
-        elif monster_val== "2":
-            break
-        else:
-            os.system('cls')
-            print("Välj mellan 1 eller 2")
-        return Player_1
-#Monster scen är oklar
+def strid_scen(Player_1):
+    Player.strid(Player_1)
+
 def kista_scen():
 
 
@@ -113,6 +33,7 @@ Tryck [Enter] för att fortsätta till kistan!
 =======================================
     """)
     input("Skriv") #tillfällig kod
+
 def dörrar(Player_1):
     
     while True:
@@ -150,24 +71,22 @@ def dörrar(Player_1):
 
         elif val == "s":
             os.system('cls')
-            print(f"HP {Player_1.HP}")
-            print(f"Styrka {Player_1.STR}")
-            print(f"Level {Player_1.LVL}")
-            print(f"Dina pengar {Player_1.pengar}$")
+            Player.player_egenskaper(Player_1)
             input("okej? [Tryck enter].")
             os.system('cls')
         elif val == "1":
             os.system('cls')
-            falla_scen(Player_1)
+            Player_1 = falla_scen(Player_1)
         elif val =="2":
             os.system('cls')
-            strid_scen(Player_1)
+            Player_1 = strid_scen(Player_1)
         elif val =="3":
             os.system('cls')
-            kista_scen()
+            Player_1 = kista_scen()
         else:
             os.system('cls')
             print("Välj rätt värde '1', '2, '3', '[b] för att backa', och [s] för att se din nuvarande status") #Funkar inte       
+
 def start(Player_1):
                 while True:  
                     os.system('cls')
@@ -201,10 +120,7 @@ def start(Player_1):
                         return
                     elif Players_val2 == "3":
                         os.system('cls')
-                        print(f"HP {Player_1.HP}")
-                        print(f"Styrka {Player_1.STR}")
-                        print(f"Level {Player_1.LVL}")
-                        print(f"Dina pengar {Player_1.pengar}$")
+                        Player.player_egenskaper(Player_1)
                         input("okej? [Tryck enter].")
                         continue
                         
@@ -215,8 +131,7 @@ def start(Player_1):
                     else: 
                         os.system('cls')
                         print("Skriv rätt siffra 1, 2 eller 3")  #Funkar inte 
-                    
-                    
+                                      
 def main():
     Player_1=Player(100,20,1,100)
     while True:

@@ -28,7 +28,7 @@ def butik(Player_1):
         /\ 
     //`-||-'1\'
     (|-=||=- |)                          |==================|
-    \L,-||-.//                           |Namn = Mehdis Yxa |
+    \L,-||-.//                           |Namn =  Yxa       |
     `   ||  '                            |Pris = 200$       |
         ||                               |Strength_bonus = 5|
         ||                               |==================|
@@ -124,7 +124,7 @@ def butik(Player_1):
                 else:
                     os.system('cls')
                     print("Skriv rätt!!")
-            val_shelf = ""
+            return Player_1
               
         if val_shelf == "4":
             os.system('cls')
