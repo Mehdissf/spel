@@ -3,7 +3,6 @@ import os
 import time
 
 def butik(Player_1):
-    # os.system('cls')
     Alternativ = ["1","2","3","4"]
     val_shelf = ""
     while val_shelf not in Alternativ:
@@ -28,6 +27,7 @@ def butik(Player_1):
         /\ 
     //`-||-'1\'
     (|-=||=- |)                          |==================|
+    \L,-||-.//                           |Namn = Mehdis Yxa |
     \L,-||-.//                           |Namn =  Yxa       |
     `   ||  '                            |Pris = 200$       |
         ||                               |Strength_bonus = 5|
@@ -36,7 +36,6 @@ def butik(Player_1):
         ||   
         ||
         ()
-
             """)
             input("sijdbsovnodnvs")
             os.system('cls')
@@ -46,7 +45,6 @@ def butik(Player_1):
             os.system('cls')
             print("""
     Skjutvapen:
-
             _________
             /'        /|
             /         / |_
@@ -72,13 +70,11 @@ def butik(Player_1):
         d'             `b
            
         |
-        
         |======|
             """)
             input("Hjsicndaonca")
             os.system('cls')
             return Player_1
-
         if val_shelf == "3":
             os.system('cls')
             köp_plåster = input(""" 
@@ -124,15 +120,15 @@ def butik(Player_1):
                 else:
                     os.system('cls')
                     print("Skriv rätt!!")
+            val_shelf = ""
             return Player_1
-              
+
         if val_shelf == "4":
             os.system('cls')
             return Player_1
         else:
             os.system('cls')
             print("Välj rätt siffta")
-    
     
 
 

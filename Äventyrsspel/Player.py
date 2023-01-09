@@ -1,23 +1,23 @@
 from Items import *
 from fälla import *
 from monster import *
+from Butik import *
 import random
 import time
 import os
 import sys
 class Player():
     def __init__(self,HP:int,STR:int,LVL:int,pengar:int):
-        
         self.HP=HP
         self.STR=STR
         self.LVL=LVL
         self.pengar=pengar
         self.inventory = []
 
-    def add_to_inventory(self, item):
+    def lägg_till_inventoryt(self, item):
         self.inventory.append(item)
     
-    def get_total_STR(self):
+    def total_STR(self):
         total_STR = self.strength
         for item in self.inventory:
             total_STR += item.bonus_strength
@@ -28,11 +28,11 @@ class Player():
         print(f"Styrka {Player_1.STR}")
         print(f"Level {Player_1.LVL}")
         print(f"Dina pengar {Player_1.pengar}$")
-        
+      
     def falla(self):
         fälllistan = [Lava, Helvete, Spökhus]
         vald_fälla = random.choice(fälllistan)
-        ord = ["Hej", "Teknik", "Elnur", "Mehdi"]
+        ord = ["Hej", "Teknik", "Elnur", "Johannes"]
         target_ord = random.choice(ord)
         print(f"""
 ===========================================================================================
@@ -92,6 +92,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
 
     def strid(self):
         while True:
+            Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valt_monster)
             print("""
 =================================================================
@@ -105,25 +106,49 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 if valt_monster.STR > Player_1.STR:
                     os.system('cls')
                     Player_1.HP -= 10
-                    valt_monster.HP -= Player_1.STR
                     print("Du förlorade striden mot monstret. Du har nu", Player_1.HP, "HP kvar.")
-                    print(valt_monster.namn, "har nu", valt_monster.HP)
-                    input()
 
                 elif valt_monster.STR < Player_1.STR:
-                    Player_1.LVL += 1
                     os.system('cls')
+                    Player_1.LVL += 1
                     print("Du vann striden mot monstret! Du gick upp ett LVL och är nu LVL", Player_1.LVL)
-                    input()
+                    print(valt_monster.namn, "är död.")
+                    time.sleep(0.5)
+                    print("Du fick följande items av monstret!")
+                    item = slumpat_item.namn
+                    Player_1.lägg_till_inventoryt(item)
+                    Player_1.STR += slumpat_item.bonus_strength
+                    #Player ska få loot
+                    #Är inte säker på hur exakt detta kommer att funka
                 else:
                     os.system('cls')
-                    print("Striden resulterade i en oavgjord match.")
-            if val == "2":
+                    print("Striden resulterar i en oavgjord match.")
+
+            elif val == "2":
                 os.system('cls')
                 break
+            #vet inte hur jag ska avsluta spelet om spelarens HP går mot 0
+            elif  Player_1.HP <= 0:
+                print("Du har dött.")
+                if  Player_1.pengar > 500:
+                    Vill_du_betala_för_att_köra_igen = input("Betla 500$ för att fortsätta spela: \n Ja/Nej: ")
+                    if Vill_du_betala_för_att_köra_igen == "Ja":
+                        Player_1.pengar -= 500
+                        Player_1.HP += 100
+                        return Player_1
+                    elif Vill_du_betala_för_att_köra_igen == "Nej":
+                        sys.exit()
+                    else:
+                        print("Fel! skriv rätt!!")
+                sys.exit()       
             else:
+                os.system('cls')
                 print("Ogiltigt val! Skriv rätt")
         return Player_1
+
+
+
+
 
 Player_1=Player(100,20,1,100)
 ursprungliga_HP = Player_1.HP

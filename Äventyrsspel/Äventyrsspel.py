@@ -13,18 +13,16 @@ os.system('cls')
 
 def falla_scen(Player_1):
     os.system('cls')
-    #Spelaren ska hinna med att skriva ett ord väldigt fort för att kunna överleva från fällan ------>>
+    #Spelaren ska hinna med att skriva ett ord väldigt fort för att kunna komma undan fällan ------>>
     #splearen förlorar HP om den misslyckas
     #Fälllor ska slumpvis lottas ut vid varje iteration
-    #Om spelaren dör av en fälla -----> Spelet avslutas  -----> går tillbaka till första sidan och allt återställs 
+    #Om spelaren dör av en fälla -----> Spelet avslutas  -----> går tillbaka till första sidan och allt återställs!!!
     Player.falla(Player_1)
 
 def strid_scen(Player_1):
     Player.strid(Player_1)
 
 def kista_scen():
-
-
     os.system('cls')
     print("""
 =======================================    
@@ -32,7 +30,7 @@ Du har hittat en kista!!
 Tryck [Enter] för att fortsätta till kistan!
 =======================================
     """)
-    input("Skriv") #tillfällig kod
+    input() #tillfällig kod
 
 def dörrar(Player_1):
     
@@ -68,7 +66,6 @@ def dörrar(Player_1):
             os.system('cls')
             print("hej")
             return Player_1
-
         elif val == "s":
             os.system('cls')
             Player.player_egenskaper(Player_1)
@@ -97,8 +94,7 @@ def start(Player_1):
     Ni åker till Borås för att besöka Elliot som har sedan år 2030 varit bosatt där.                              
     Han bor tillsammans med sina tre moderlösa barn. 
     Informantion om vad det är som hänt med barnens mödrar är ett mysterium och ingen har än idag fått reda på det. 
-    Legender säger att Elliot har aldrig haft någon fru.... Men hur fick han de där tre barnen då??? 
-    Ingen vet det.. Skitsamma låt oss gå vidare nu..... 
+    Legender säger att Elliot har aldrig haft någon fru...
 ============================================================================================= 
 
 ===================== 
@@ -140,9 +136,9 @@ def main():
 ==================================================================     
  Hej och välkomna till äventyrsspelet skapat av Mahdi och Elliot------>>>> 
 ===================================================================
-==========================================
+===================================================================
     Välj ett av de alternativen nedan för att gå vidare
-==========================================
+===================================================================
 
             1) Starta spelet 
             2) Lämna spelet 
