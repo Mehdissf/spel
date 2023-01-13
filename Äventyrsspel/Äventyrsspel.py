@@ -87,7 +87,6 @@ def start(Player_1):
                         os.system('cls')
                         Player_1 = dörrar(Player_1)
 
-
                     elif Players_val2 == "2":
                         os.system('cls')
                         return
