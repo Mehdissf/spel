@@ -41,7 +41,7 @@ def butik(Player_1):
             os.system('cls')
             return Player_1
         
-        if val_shelf == "2":
+        elif val_shelf == "2":
             os.system('cls')
             print("""
     Skjutvapen:
@@ -75,7 +75,7 @@ def butik(Player_1):
             input("Hjsicndaonca")
             os.system('cls')
             return Player_1
-        if val_shelf == "3":
+        elif val_shelf == "3":
             os.system('cls')
             köp_plåster = input(""" 
             
@@ -123,7 +123,7 @@ def butik(Player_1):
             val_shelf = ""
             return Player_1
 
-        if val_shelf == "4":
+        elif val_shelf == "4":
             os.system('cls')
             return Player_1
         else:

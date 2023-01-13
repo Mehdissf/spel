@@ -60,14 +60,13 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 
             elif time.time() - start_tid > 5: 
                 if vald_fälla == "Lava": #Här vet jag fan inte vad jag ska göra efter man dör asså
-                    print("Vila i frid!!")
-                    time.sleep(0.5)
-                    print("Ingen har lyckats med att hitta din lik, den är förmodligen smält och har omvandlat sig till rök")
+                    os.system('cls')
                     Player_1.HP -= Lava.skada
                     input("Tryck [ENTER]:")
                     os.system('cls')
                     break
                 elif vald_fälla.namn == "Helvete":
+                    os.system('cls')
                     print(f"Helvete har gett dig {Helvete.skada} skada")
                     print(f"Ditt HP är nu {Player_1.HP - Helvete.skada}")
                     Player_1.HP -= Helvete.skada
@@ -75,6 +74,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     os.system('cls')
                     break
                 elif vald_fälla.namn == "Spökhus":
+                    os.system('cls')
                     print(f"Spökhus gav dig {Spökhus.skada}")
                     print(f"Ditt HP är nu {Player_1.HP - Spökhus.skada}")
                     Player_1.HP -= Spökhus.skada
@@ -82,7 +82,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     os.system('cls')
                     break
                 return Player_1
-            else: #funkar inmte
+            else: #funkar inmt
                 print("Försök igen ")
         if Player_1.HP <= 0:
             print("Spelaren har dött! Spelet är över.")
@@ -91,6 +91,8 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
             return Player_1
 
     def strid(self):
+
+
         while True:
             Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valt_monster)
@@ -145,7 +147,17 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 os.system('cls')
                 print("Ogiltigt val! Skriv rätt")
         return Player_1
-
+    
+    def kista(self):
+        os.system('cls')
+        print("""
+===================================================    
+    Du har hittat en kista!!
+    Tryck [Enter] för att fortsätta till kistan!
+===================================================
+        """)
+        input() #tillfällig kod
+        return Player_1
 
 
 

@@ -10,30 +10,7 @@ from monster import *
 from fälla import *
 from Player import *
 os.system('cls')
-
-def falla_scen(Player_1):
-    os.system('cls')
-    #Spelaren ska hinna med att skriva ett ord väldigt fort för att kunna komma undan fällan ------>>
-    #splearen förlorar HP om den misslyckas
-    #Fälllor ska slumpvis lottas ut vid varje iteration
-    #Om spelaren dör av en fälla -----> Spelet avslutas  -----> går tillbaka till första sidan och allt återställs!!!
-    Player.falla(Player_1)
-
-def strid_scen(Player_1):
-    Player.strid(Player_1)
-
-def kista_scen():
-    os.system('cls')
-    print("""
-=======================================    
-Du har hittat en kista!!
-Tryck [Enter] för att fortsätta till kistan!
-=======================================
-    """)
-    input() #tillfällig kod
-
 def dörrar(Player_1):
-    
     while True:
         print("""
 |============================================|
@@ -73,13 +50,13 @@ def dörrar(Player_1):
             os.system('cls')
         elif val == "1":
             os.system('cls')
-            Player_1 = falla_scen(Player_1)
+            Player.falla(Player_1)
         elif val =="2":
             os.system('cls')
-            Player_1 = strid_scen(Player_1)
+            Player.strid(Player_1)
         elif val =="3":
             os.system('cls')
-            Player_1 = kista_scen()
+            Player.kista(Player_1)
         else:
             os.system('cls')
             print("Välj rätt värde '1', '2, '3', '[b] för att backa', och [s] för att se din nuvarande status") #Funkar inte       
