@@ -1,6 +1,7 @@
 from Player import *
 import os 
 import time
+from Äventyrsspel.Player import Player_1
 class Butik_items:
   def __init__(self, namn, bonus_strength, bonus_hp):
     self.namn = namn
