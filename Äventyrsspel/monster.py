@@ -1,4 +1,20 @@
 import random
+class Monster():
+    def __init__(self,namn,HP,STR,figur):
+        self.namn=namn
+        self.HP=HP
+        self.STR=STR
+        self.figur =figur
+
+    def monster_egenskaper(self):
+        print(f"Du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
+        print(f"""{valt_monster.figur}""") #ser knasigt ut
+        print(f'Monstrets namn {valt_monster.namn}')        
+        print(f'Styrka {valt_monster.STR}')
+        print(f'HP {valt_monster.HP}')
+
+
+
 Elliot_figur = ["""
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMMMMMMM
 MMMMMMMMMMMMWNK0kxddddxkO0XWMMMMMMMMMMMM
@@ -61,22 +77,6 @@ Gargamel_figur = ["""
 \       \  /`
         \(
 """]
-class Monster():
-    def __init__(self,namn,HP,STR,figur):
-        self.namn=namn
-        self.HP=HP
-        self.STR=STR
-        self.figur =figur
-
-    def monster_egenskaper(self):
-        print(f"Du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
-        print(f"""{valt_monster.figur}""") #ser knasigt ut
-        print(f'Monstrets namn {valt_monster.namn}')        
-        print(f'Styrka {valt_monster.STR}')
-        print(f'HP {valt_monster.HP}')
-
-
-
 Elliot= Monster("Elliot", 100, 50, Elliot_figur )
 Hitler= Monster("Hitler", 90, 30, Hitler_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )

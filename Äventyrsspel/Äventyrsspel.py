@@ -1,9 +1,4 @@
-import random
-import time
 import os
-import sys
-# from Items import *
-# from Loot import *
 from Butik import *
 from Player import *
 from monster import *
@@ -98,7 +93,7 @@ def start(Player_1):
                         
                     elif Players_val2 == "4":
                         os.system('cls')
-                        Player_1 = butik(Player_1)
+                        Butik_items.butik(Player_1)
                                
                     else: 
                         os.system('cls')
