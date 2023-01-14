@@ -10,7 +10,6 @@ Helvete = Fälla("Helvete", 70)
 Spökhus = Fälla("Spökhus", 30)
 
 
-fälllistan = [Lava, Helvete, Spökhus]
-vald_fälla = random.choice(fälllistan)
+
 
 

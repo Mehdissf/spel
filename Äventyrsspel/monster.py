@@ -7,11 +7,11 @@ class Monster():
         self.figur =figur
 
     def monster_egenskaper(self):
-        print(f"Du har stött på monstret {valt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
-        print(f"""{valt_monster.figur}""") #ser knasigt ut
-        print(f'Monstrets namn {valt_monster.namn}')        
-        print(f'Styrka {valt_monster.STR}')
-        print(f'HP {valt_monster.HP}')
+        print(f"Du har stött på monstret {valtt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
+        print(f"""{valtt_monster.figur}""") #ser knasigt ut
+        print(f'Monstrets namn {valtt_monster.namn}')        
+        print(f'Styrka {valtt_monster.STR}')
+        print(f'HP {valtt_monster.HP}')
 
 
 
@@ -82,7 +82,9 @@ Hitler= Monster("Hitler", 90, 30, Hitler_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
 lista =[Elliot, Hitler, Gargamel]
-valt_monster = random.choice(lista)
+valtt_monster = random.choice(lista)
+
+
 
 
 

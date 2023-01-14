@@ -30,6 +30,8 @@ class Player():
         print(f"Dina pengar {Player_1.pengar}$")
       
     def falla(self):
+        fälllistan = [Lava, Helvete, Spökhus]
+        vald_fälla = random.choice(fälllistan)
         ord = ["Hej", "Teknik", "Elnur", "Johannes"]
         target_ord = random.choice(ord)
         print(f"""
@@ -62,7 +64,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     Player_1.HP -= Lava.skada
                     input("Tryck [ENTER]:")
                     os.system('cls')
-                    break
+                    return Player_1
                 elif vald_fälla.namn == "Helvete":
                     os.system('cls')
                     print(f"Helvete har gett dig {Helvete.skada} skada")
@@ -70,7 +72,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     Player_1.HP -= Helvete.skada
                     input("Tryck [ENTER]: ")
                     os.system('cls')
-                    break
+                    return Player_1
                 elif vald_fälla.namn == "Spökhus":
                     os.system('cls')
                     print(f"Spökhus gav dig {Spökhus.skada}")
@@ -78,7 +80,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     Player_1.HP -= Spökhus.skada
                     input("Tryck [ENTER]: ")
                     os.system('cls')
-                    break
+                    return Player_1
                 return Player_1
             else: #funkar inmt
                 print("Försök igen ")
@@ -89,9 +91,9 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
             return Player_1
 
     def strid(self):
-
-
         while True:
+            lista =[Elliot, Hitler, Gargamel]
+            valt_monster = random.choice(lista)
             Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valt_monster)
             print("""
@@ -107,6 +109,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     os.system('cls')
                     Player_1.HP -= 10
                     print("Du förlorade striden mot monstret. Du har nu", Player_1.HP, "HP kvar.")
+                    return Player_1
 
                 elif valt_monster.STR < Player_1.STR:
                     os.system('cls')
@@ -120,9 +123,11 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     Player_1.STR += slumpat_item.bonus_strength
                     #Player ska få loot
                     #Är inte säker på hur exakt detta kommer att funka
+                    return Player_1
                 else:
                     os.system('cls')
                     print("Striden resulterar i en oavgjord match.")
+                    return Player_1
 
             elif val == "2":
                 os.system('cls')
