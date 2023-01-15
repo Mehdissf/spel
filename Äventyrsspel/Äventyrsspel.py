@@ -4,6 +4,7 @@ from Player import *
 from monster import *
 from fälla import *
 from Player import *
+from kista import *
 os.system('cls')
 def dörrar(Player_1):
     while True:
