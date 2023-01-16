@@ -1,13 +1,13 @@
-#har det här för tillfället ska försöka fixa det
-def kista_scen(self):
-        print("""
-    =======================================    
-    Du har hittat en kista!!
-    Kistan innehåller tre st olika föremål
-    Välj ett föremål:
-    1) 2) 3)
-    =======================================
-        """)
+#har det här för tillfället
+# def kista_scen(self):
+#         print("""
+#     =======================================    
+#     Du har hittat en kista!!
+#     Kistan innehåller tre st olika föremål
+#     Välj ett föremål:
+#     1) 2) 3)
+#     =======================================
+#         """)
          # def kista_scen(self):
     #     os.system('cls')
     #     print("""

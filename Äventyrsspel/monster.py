@@ -1,4 +1,5 @@
 import random
+import itertools
 class Monster():
     def __init__(self,namn,HP,STR,figur):
         self.namn=namn
@@ -77,13 +78,14 @@ Gargamel_figur = ["""
 \       \  /`
         \(
 """]
+
 Elliot= Monster("Elliot", 100, 50, Elliot_figur )
 Hitler= Monster("Hitler", 90, 30, Hitler_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
+
 lista =[Elliot, Hitler, Gargamel]
 valtt_monster = random.choice(lista)
-
 
 
 
