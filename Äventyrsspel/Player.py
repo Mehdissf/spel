@@ -7,7 +7,7 @@ import time
 import os
 import sys
 class Player():
-    def __init__(self,HP:int,STR:int,LVL:int,pengar:int):
+    def __init__(self,HP,STR,LVL,pengar):
         self.HP=HP
         self.STR=STR
         self.LVL=LVL
@@ -16,6 +16,13 @@ class Player():
 
     def lägg_till_inventoryt(self, item):
         self.inventory.append(item)
+    
+    def ryggsäck(self):           
+        
+        if len(Player_1.inventory) == 5:
+            print("")
+        elif Player_1 >5:
+            print("Jddg")
     
     def total_STR(self):
         total_STR = self.strength
@@ -96,6 +103,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
             valt_monster = random.choice(lista)
             Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valt_monster)
+            print(valt_monster)
             print("""
 =================================================================
     Vad väljer du?
@@ -118,9 +126,9 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     print(valt_monster.namn, "är död.")
                     time.sleep(0.5)
                     print("Du fick följande items av monstret!")
-                    item = slumpat_item.namn
-                    Player_1.lägg_till_inventoryt(item)
-                    Player_1.STR += slumpat_item.bonus_strength
+                    # item = slumpat_item.namn
+                    # Player_1.lägg_till_inventoryt(item)
+                    # Player_1.STR += slumpat_item.bonus_strength
                     #Player ska få loot
                     #Är inte säker på hur exakt detta kommer att funka
                     return Player_1
@@ -151,32 +159,44 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 print("Ogiltigt val! Skriv rätt")
         return Player_1
     
-    def kista_scen(Player_1):
+    def kista(Player_1):
         os.system('cls')
         print("""
-    =======================================    
+=======================================    
     Du har hittat en kista!!
-    Kistan innehåller tre st olika föremål
-    Välj ett föremål:
-    1) 2) 3)
-    =======================================
+    Tryck (Enter)
+=======================================
         """)
-        kista = [Slangbella, Kannon, Gremlin]
-        val=input()
-        if val == "1":
-            os.system('cls')
-            print("Du fick en Slangbella")
-            input("Vill du behålla den? 1) Absolut 2)Nej skit på dig")
-            if val == "1":
-                Player_1.inventory.append(Slangbella)
-            elif val == "2":
-                os.system('cls')
-        elif val =="2":
-            os.system('cls')
-            print("I kistan hittade du en kannon")
-        elif val =="3":
-            os.system('cls')
-            print("Du hittade en Gremlin, var försiktig")
+        input()
+        os.system('cls')
+        print("Du har hittat "+valt_item.namn)
+        print("Den ger dig "+valt_item.bonus_strength)
+        Player_1.inventory.append(valt_item)
+        input("OK???")
+        return Player_1
+
+        #     print("Du fick en Slangbella")
+        #     input("Vill du behålla den? a) Absolut b)Nej skit på dig")
+        #     if val == "a":
+        #         Player_1.inventory.append(valt_item)
+        #     elif val == "b":
+        #         os.system('cls')
+        # elif val =="2":
+        #     os.system('cls')
+        #     print("I kistan hittade du en kannon")
+        #     input("Vill du ha denna kannon? c)Självklart d)Nej I dont tink så ")
+        #     if val == "c":
+        #          Player_1.inventory.append(valt_item)
+        #     elif val == "d":
+        #         os.system('cls')
+        # elif val =="3":
+        #     os.system('cls')
+        #     print("Du hittade en Gremlin, var försiktig")
+        #     input("Vill du ta hand om den? e)Jo men det klart f)Inte en chans, jag gillar kvällsnack för mycket")
+        #     if val == "e":
+        #         Player_1.inventory.append(valt_item)
+        #     elif val == "f":
+        #         os.system('cls')
     
 
 

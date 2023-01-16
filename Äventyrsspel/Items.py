@@ -12,9 +12,6 @@ Slangbella=Item("Slangbella",3)
 Kannon=Item("Kannon",5)
 Gremlin=Item("Gremlin",7)
 
-lista =[svärd, spjut, pilbåge, sten]
-slumpat_item = random.choice(lista)
-def kista():
-    kista=["Slangbella","Kannon","Gremlin"]
-    kista=random.randint(0,2)
+kista = [svärd, spjut, pilbåge, sten, Slangbella, Kannon, Gremlin]
+valt_item = random.choice(kista)
 

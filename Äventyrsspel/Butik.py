@@ -1,7 +1,7 @@
 from Player import *
 import os 
 import time
-from Äventyrsspel.Player import Player_1
+# from Äventyrsspel.Player import Player_1
 class Butik_items:
   def __init__(self, namn, bonus_strength, bonus_hp):
     self.namn = namn
@@ -44,7 +44,7 @@ class Butik_items:
                     time.sleep(0.5)
                     print(f"Pengar kvar: {Player_1.pengar}")
                     input("Tryck enter för att gå vidare")
-                    return Player_1
+                    break
         elif köp_plåster == "2":
             break
         else:
@@ -126,17 +126,14 @@ class Butik_items:
             if val_shelf == "1":
                 os.system('cls')
                 Butik_items.yxa(Player_1)
-                return Player_1
 
             elif val_shelf == "2":
                 os.system('cls')
                 Butik_items.skjutvapen(Player_1)
-                return Player_1
 
             elif val_shelf == "3":
                 os.system('cls')
                 Butik_items.köp_plåster(Player_1)
-                return Player_1
 
             elif val_shelf == "4":
                 os.system('cls')
@@ -144,7 +141,7 @@ class Butik_items:
             else:
                 os.system('cls')
                 print("Välj rätt siffta")
-        return Player_1
+            val_shelf = ""
 
 Plåster = Butik_items("Plåster", None, 10)
 Ksp = Butik_items("KSP-58", 5, None)
