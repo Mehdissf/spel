@@ -52,7 +52,7 @@ def dörrar(Player_1):
             Player.strid(Player_1)
         elif val =="3":
             os.system('cls')
-            Player.kista(Player_1)
+            Player.kista_scen(Player_1)
         else:
             os.system('cls')
             print("Välj rätt värde '1', '2, '3', '[b] för att backa', och [s] för att se din nuvarande status") #Funkar inte       
@@ -82,7 +82,6 @@ def start(Player_1):
                     if Players_val2 == "1":
                         os.system('cls')
                         Player_1 = dörrar(Player_1)
-
                     elif Players_val2 == "2":
                         os.system('cls')
                         return

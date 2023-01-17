@@ -13,7 +13,7 @@ class Player():
         self.STR=STR
         self.LVL=LVL
         self.pengar=pengar
-        self.inventory = []
+        self.inventory = [0,4]
 
     def lägg_till_inventoryt(self, item):
         self.inventory.append(item)
@@ -22,7 +22,7 @@ class Player():
         
         if len(Player_1.inventory) == 5:
             print("")
-        elif Player_1 >5:
+        elif len(Player_1.inventory) >5:
             print("Du fick ett till vapen")
     
     def total_STR(self):
@@ -160,31 +160,35 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 print("Ogiltigt val! Skriv rätt")
         return Player_1
     
-    def kista_scen(Player_1):
+    def kista_scen(self):
         os.system('cls')
         print("""
     =======================================    
     Du har hittat en kista!!
-    Kistan innehåller tre st olika föremål
-    Välj ett föremål:
-    1) 2) 3)
+    Tryck på (Enter) för att öppna
     =======================================
         """)
-        # val=input()
-        # if val == "1":
+        input()
+        os.system('cls')
+        random_kista = random.choice(kista)
+        print("Du har hittat en/ett " + random_kista["item"] + "med strength_bonus  " + str(random_kista["strength_bonus"]))
+        # if len(Player_1.inventory) >5:
         #     os.system('cls')
-        #     print("Du fick en Slangbella")
-        #     input("Vill du behålla den? 1) Absolut 2)Nej skit på dig")
-        #     if val == "1":
-        #         Player_1.inventory.append(Slangbella)
-        #     elif val == "2":
-        #         os.system('cls')
-        # elif val =="2":
+        #     print("Grattis du fick ett nytt vapen")
+        # elif len(Player_1.inventory) == 5:
+        #  val=input()
+        #  print("Vill du byta ut vapnet? a)Jo men absolut b)Nej skit på dig")
+        #  if val =="a":
         #     os.system('cls')
-        #     print("I kistan hittade du en kannon")
-        # elif val =="3":
+        # elif val =="b":
         #     os.system('cls')
-        #     print("Du hittade en Gremlin, var försiktig")
+        return Player_1
+        
+        
+
+
+
+        return Player_1
     
 
 

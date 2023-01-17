@@ -7,6 +7,7 @@ class Monster():
         self.STR=STR
         self.figur =figur
 
+
     def monster_egenskaper(self):
         print(f"Du har stött på monstret {valtt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
         print(f"""{valtt_monster.figur}""") #ser knasigt ut
