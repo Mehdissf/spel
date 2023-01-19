@@ -3,6 +3,7 @@ from Butik import *
 from Player import *
 from monster import *
 from fälla import *
+from Player import *
 os.system('cls')
 def dörrar(Player_1):
     while True:
@@ -29,7 +30,7 @@ def dörrar(Player_1):
 |================================================================================ |
 | OBS! Det kan antingen finnas ett monster/ en fälla eller en kista bakom dörrarna|
 |                                                                                 |
-| Tillbaka till förra sidan [b]          Status [s]        Inventory(i)           |
+| Tillbaka till förra sidan [b]          Status [s]                               |
 |================================================================================ |
         """)
         val = input()
@@ -42,12 +43,6 @@ def dörrar(Player_1):
             Player.player_egenskaper(Player_1)
             input("okej? [Tryck enter].")
             os.system('cls')
-        elif val == "i":
-            os.system('cls')
-            Player.player_inventory(Player_1)
-            input("okej? [Tryck enter].")
-            os.system('cls')
-            # print(Inventory_beskrivning)
         elif val == "1":
             os.system('cls')
             Player.falla(Player_1)
@@ -82,10 +77,12 @@ def start(Player_1):
     3) Se din profil
     4) Butik
             """)
+            
                     Players_val2 = input("\n\n")
                     if Players_val2 == "1":
                         os.system('cls')
                         Player_1 = dörrar(Player_1)
+
                     elif Players_val2 == "2":
                         os.system('cls')
                         return
@@ -101,7 +98,7 @@ def start(Player_1):
                                
                     else: 
                         os.system('cls')
-                        print("Skriv rätt siffra 1, 2 eller 3")
+                        print("Skriv rätt siffra 1, 2 eller 3")  #Funkar inte 
                                       
 def main():
     Player_1=Player(100,20,1,100)

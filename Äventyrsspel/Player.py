@@ -107,7 +107,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
     def strid(self):
         while True:
             lista =[Elliot, Hitler, Gargamel]
-            # valtt_monster = random.choice(lista)
+            valtt_monster = random.choice(lista)
             Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valtt_monster)
             print(valtt_monster)
@@ -167,39 +167,6 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
         Player.lägg_till_inventoryt(valt_item_info, valt_item)
         Player_1.STR += valt_item.bonus_strength #måste göra så att om item fick plats i ryggsäcken då ska den ge STR_bonus
 
-
-
-
-
-
-
-
-
-
-
-
-
-    #     if len (Player_1.inventory) == 5:
-    #         val = input("Din ryggsäck är full. Vill du byta ut ett item från din ryggsäck mot det du hittat nu? (ja/nej)")
-    #         if val == "ja":
-    #             print("Din ryggsäck innehåller: ")
-    #             Player_1.ryggsäck()
-    #             utbyte = int(input("Vilket item vill du ta bort? "))
-    #             removed_item = Player_1.inventory[utbyte -1]
-    #             del Player_1.inventory[utbyte -1]
-    #             Player_1.inventory.append(valt_item)
-    #             print(f"Du har fått nu {valt_item.namn} i din ryggsäck")
-    #             print(f"Du tog bort {removed_item.namn} från din ryggsäck")
-    #             print(f"Det ger dig {valt_item.bonus_strength}")
-    #             input()
-    #             return Player_1
-    #         else:
-    #             print(f"Du har hittat {valt_item.namn}")
-    #             print(f"Det ger dig {valt_item.bonus_strength}")
-    #             Player_1.inventory.append(valt_item)
-    #             input("okej? [ENTER}")
-    #             return Player_1
-
     def ryggsäck (self):
         print("Din ryggsäck: ")
         for i in range(len(Player_1.inventory)):
@@ -209,10 +176,6 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
 
 
     
-
-
-
-
 Player_1=Player(100,25,1,100)
 ursprungliga_HP = Player_1.HP
 
