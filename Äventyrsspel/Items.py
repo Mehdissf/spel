@@ -26,6 +26,10 @@ kista = [
 
 
 ]
+random_kista2 = random.choice(kista)
+random_kista3 = random.choice(kista)
+random_kista4 = random.choice(kista)
+random_kista5 = random.choice(kista)
 random_kista = random.choice(kista)
 print("You found a chest containing a " + random_kista["item"] + " with a strength bonus of " + str(random_kista["strength_bonus"]))
 

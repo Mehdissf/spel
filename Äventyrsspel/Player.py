@@ -2,7 +2,6 @@ from Items import *
 from fälla import *
 from monster import *
 from Butik import *
-import itertools
 import random
 import time
 import os
@@ -15,15 +14,6 @@ class Player():
         self.pengar=pengar
         self.inventory = [0,4]
 
-    def lägg_till_inventoryt(self, item):
-        self.inventory.append(item)
-    
-    def ryggsäck(self):           
-        
-        if len(Player_1.inventory) == 5:
-            print("")
-        elif len(Player_1.inventory) >5:
-            print("Du fick ett till vapen")
     
     def total_STR(self):
         total_STR = self.strength
@@ -36,6 +26,15 @@ class Player():
         print(f"Styrka {Player_1.STR}")
         print(f"Level {Player_1.LVL}")
         print(f"Dina pengar {Player_1.pengar}$")
+    
+    #För tillfället måste bara se till så ens egna items läggs till, men man kan börja med dessa
+    def player_inventory(self):
+        print("Du öppnar ditt inventory, dina nuvarande items är:")
+        print(f"1."+ random_kista["item"]+ "\nStyrka:" + str(random_kista["strength_bonus"]))
+        print(f"2."+ random_kista2["item"]+ "\nStyrka:" + str(random_kista2["strength_bonus"]))
+        print(f"3."+ random_kista3["item"]+ "\nStyrka:" + str(random_kista3["strength_bonus"]))
+        print(f"4."+ random_kista4["item"]+ "\nStyrka:" + str(random_kista4["strength_bonus"]))
+        print(f"5."+ random_kista5["item"] + "\nStyrka:" + str(random_kista5["strength_bonus"]))
       
     def falla(self):
         fälllistan = [Lava, Helvete, Spökhus]
@@ -159,7 +158,6 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 os.system('cls')
                 print("Ogiltigt val! Skriv rätt")
         return Player_1
-    
     def kista_scen(self):
         os.system('cls')
         print("""
@@ -174,8 +172,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
         if len(Player_1.inventory) < 5:
             os.system('cls')
             print("Grattis du fick ett nytt vapen")
-            print("Du har hittat en/ett " + random_kista["item"] + "med strength_bonus  " + str(random_kista["strength_bonus"]))
-            
+            print("Du har hittat en/ett " + random_kista["item"] + "med strength_bonus  " + str(random_kista["strength_bonus"]))  
         elif len(Player_1.inventory) == 5:
          print("Vill du byta ut vapnet?\n a) Jo men absolut\n b) Nej skit på dig")
          val=input("\n-> ")
@@ -188,17 +185,42 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 number += 1
             remove_item = input("->")
             Player_1.inventory.pop(remove_item)
-
-            
-        elif val =="b":
-            os.system('cls')
         return Player_1
         
         
+    
+    def lägg_till_inventoryt(self, item):
+        self.inventory.append(item)
+
+class Inventory:
+    def __init__(self):
+        # self.items[]
+        self.max_slots=5
+
+# Inventory_beskrivning="Du öppnar ditt inventory,dina nuvarande items är: \n Item \n Item \n Item \n Item \n Item "
 
 
 
-        return Player_1
+
+
+# def addera_item(self, item):
+#         if len(self.items) < self.max_slots:
+#             self.items.append(item)
+#             print(f'{item} added to inventory.')
+#         else:
+#             print('Inventory is full, cannot add more items.')
+
+# def ryggsäck(self):           
+        
+#         if len(Player_1.inventory) == 5:
+#             print("")
+#         elif len(Player_1.inventory) >5:
+#             print("Du fick ett till vapen")
+
+
+
+
+
     
 
 
