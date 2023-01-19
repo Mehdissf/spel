@@ -6,6 +6,8 @@ class Monster():
         self.STR=STR
         self.figur =figur
 
+
+
     def monster_egenskaper(self):
         print(f"Du har stött på monstret {valtt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
         print(f"""{valtt_monster.figur}""") #ser knasigt ut
@@ -77,13 +79,13 @@ Gargamel_figur = ["""
 \       \  /`
         \(
 """]
+
 Elliot= Monster("Elliot", 100, 50, Elliot_figur )
 Hitler= Monster("Hitler", 90, 30, Hitler_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
 lista =[Elliot, Hitler, Gargamel]
 valtt_monster = random.choice(lista)
-
 
 
 

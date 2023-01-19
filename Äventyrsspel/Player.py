@@ -107,10 +107,10 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
     def strid(self):
         while True:
             lista =[Elliot, Hitler, Gargamel]
-            valt_monster = random.choice(lista)
+            # valtt_monster = random.choice(lista)
             Player.player_egenskaper(Player_1)
-            Monster.monster_egenskaper(valt_monster)
-            print(valt_monster)
+            Monster.monster_egenskaper(valtt_monster)
+            print(valtt_monster)
             print("""
 =================================================================
     Vad väljer du?
@@ -120,13 +120,13 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
             """)
             val = input()
             if val == "1":
-                if valt_monster.STR > Player_1.STR:
+                if valtt_monster.STR > Player_1.STR:
                     os.system('cls')
                     Player_1.HP -= 10
                     print("Monstret var starkare därför förlorade du. Du har nu", Player_1.HP, "HP kvar.")
                     return Player_1
 
-                elif valt_monster.STR < Player_1.STR:
+                elif valtt_monster.STR < Player_1.STR:
                     os.system('cls')
                     Player_1.LVL += 1
                     print("Du vann striden mot monstret! Du gick upp ett LVL och är nu LVL", Player_1.LVL)
