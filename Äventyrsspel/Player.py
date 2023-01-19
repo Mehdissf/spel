@@ -171,17 +171,27 @@ Du har hamnat i ''''{vald_f채lla.namn}''' nu i Bor채s p책 grund av alla dina of�
         input()
         os.system('cls')
         random_kista = random.choice(kista)
-        print("Du har hittat en/ett " + random_kista["item"] + "med strength_bonus  " + str(random_kista["strength_bonus"]))
-        # if len(Player_1.inventory) >5:
-        #     os.system('cls')
-        #     print("Grattis du fick ett nytt vapen")
-        # elif len(Player_1.inventory) == 5:
-        #  val=input()
-        #  print("Vill du byta ut vapnet? a)Jo men absolut b)Nej skit p책 dig")
-        #  if val =="a":
-        #     os.system('cls')
-        # elif val =="b":
-        #     os.system('cls')
+        if len(Player_1.inventory) < 5:
+            os.system('cls')
+            print("Grattis du fick ett nytt vapen")
+            print("Du har hittat en/ett " + random_kista["item"] + "med strength_bonus  " + str(random_kista["strength_bonus"]))
+            
+        elif len(Player_1.inventory) == 5:
+         print("Vill du byta ut vapnet?\n a) Jo men absolut\n b) Nej skit p책 dig")
+         val=input("\n-> ")
+         if val =="a":
+            os.system('cls')
+            print("V채lj ett vapen att ta bort:\n")
+            number = 1
+            for item in len(Player_1.inventory):
+                print(number, ") ", item)
+                number += 1
+            remove_item = input("->")
+            Player_1.inventory.pop(remove_item)
+
+            
+        elif val =="b":
+            os.system('cls')
         return Player_1
         
         
