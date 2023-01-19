@@ -13,17 +13,23 @@ class Player():
         self.LVL=LVL
         self.pengar=pengar
         self.inventory = []
-
+    
     def lägg_till_inventoryt(self, item):
-        self.inventory.append(item)
-    
-    def ryggsäck(self):           
-        
-        if len(Player_1.inventory) == 5:
-            print("")
-        elif Player_1 >5:
-            print("Jddg")
-    
+        if len(Player_1.inventory) < 5:
+            Player_1.inventory.append(item)
+            print(f"Du fick {item} i din ryggsäck")
+
+        else:
+            utbyte = input("Vill du byta ut en item i din ryggsäck? (ja/nej ")
+            if utbyte.lower() == "ja":
+                for i, b in enumerate(Player_1.inventory):
+                    print(f"{i+1}. {b}")
+                val = int(input("Vilket föremål vil du byta ut? (Skriv in nummret)"))
+                Player_1.inventory[val-1] = item
+                print(f"Item {val} utbyttes med {item}")
+            else:
+                print("Din ryggsäck är full. Du kan tyvärr ine få det föremålet!!!")
+
     def total_STR(self):
         total_STR = self.strength
         for item in self.inventory:
@@ -35,7 +41,8 @@ class Player():
         print(f"Styrka {Player_1.STR}")
         print(f"Level {Player_1.LVL}")
         print(f"Dina pengar {Player_1.pengar}$")
-      
+        Player.ryggsäck(Player_1)
+
     def falla(self):
         fälllistan = [Lava, Helvete, Spökhus]
         vald_fälla = random.choice(fälllistan)
@@ -123,14 +130,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     os.system('cls')
                     Player_1.LVL += 1
                     print("Du vann striden mot monstret! Du gick upp ett LVL och är nu LVL", Player_1.LVL)
-                    print(valt_monster.namn, "är död.")
-                    time.sleep(0.5)
-                    print("Du fick följande items av monstret!")
-                    # item = slumpat_item.namn
-                    # Player_1.lägg_till_inventoryt(item)
-                    # Player_1.STR += slumpat_item.bonus_strength
-                    #Player ska få loot
-                    #Är inte säker på hur exakt detta kommer att funka
+                    print(valt_monster.namn + " dog.")
                     return Player_1
                 else:
                     os.system('cls')
@@ -159,37 +159,60 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 print("Ogiltigt val! Skriv rätt")
         return Player_1
     
-    def kista_scen(Player_1):
+    def kista_scen(self):
         os.system('cls')
-        print("""
-    =======================================    
-    Du har hittat en kista!!
-    Kistan innehåller tre st olika föremål
-    Välj ett föremål:
-    1) 2) 3)
-    =======================================
-        """)
-        kista = [Slangbella, Kannon, Gremlin]
-        val=input()
-        if val == "1":
-            os.system('cls')
-            print("Du fick en Slangbella")
-            input("Vill du behålla den? 1) Absolut 2)Nej skit på dig")
-            if val == "1":
-                Player_1.inventory.append(Slangbella)
-            elif val == "2":
-                os.system('cls')
-        elif val =="2":
-            os.system('cls')
-            print("I kistan hittade du en kannon")
-        elif val =="3":
-            os.system('cls')
-            print("Du hittade en Gremlin, var försiktig")
+        print("Du har hittat en kista!!!")
+        input("Fortsätt till kistan?? [ENTER]")
+        valt_item_info = {f"namn: {valt_item.namn}", f"STR_bonus: {valt_item.bonus_strength}"}
+        Player.lägg_till_inventoryt(valt_item_info, valt_item)
+        Player_1.STR += valt_item.bonus_strength #måste göra så att om item fick plats i ryggsäcken då ska den ge STR_bonus
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #     if len (Player_1.inventory) == 5:
+    #         val = input("Din ryggsäck är full. Vill du byta ut ett item från din ryggsäck mot det du hittat nu? (ja/nej)")
+    #         if val == "ja":
+    #             print("Din ryggsäck innehåller: ")
+    #             Player_1.ryggsäck()
+    #             utbyte = int(input("Vilket item vill du ta bort? "))
+    #             removed_item = Player_1.inventory[utbyte -1]
+    #             del Player_1.inventory[utbyte -1]
+    #             Player_1.inventory.append(valt_item)
+    #             print(f"Du har fått nu {valt_item.namn} i din ryggsäck")
+    #             print(f"Du tog bort {removed_item.namn} från din ryggsäck")
+    #             print(f"Det ger dig {valt_item.bonus_strength}")
+    #             input()
+    #             return Player_1
+    #         else:
+    #             print(f"Du har hittat {valt_item.namn}")
+    #             print(f"Det ger dig {valt_item.bonus_strength}")
+    #             Player_1.inventory.append(valt_item)
+    #             input("okej? [ENTER}")
+    #             return Player_1
+
+    def ryggsäck (self):
+        print("Din ryggsäck: ")
+        for i in range(len(Player_1.inventory)):
+            print(f"{i + 1}. {Player_1.inventory[i]}")
+            if len(Player_1.inventory) == 0:
+                print("Din ryggsäck är tom")
+
+
     
 
 
 
 
-Player_1=Player(100,20,1,100)
+Player_1=Player(100,25,1,100)
 ursprungliga_HP = Player_1.HP
 

@@ -52,10 +52,10 @@ def dörrar(Player_1):
             Player.strid(Player_1)
         elif val =="3":
             os.system('cls')
-            Player.kista(Player_1)
+            Player.kista_scen(Player_1)
         else:
             os.system('cls')
-            print("Välj rätt värde '1', '2, '3', '[b] för att backa', och [s] för att se din nuvarande status") #Funkar inte       
+            print("Välj rätt värde '1', '2, '3', '[b] för att backa' eller [s] för att se din nuvarande status")   
 
 def start(Player_1):
                 while True:  
@@ -98,7 +98,7 @@ def start(Player_1):
                                
                     else: 
                         os.system('cls')
-                        print("Skriv rätt siffra 1, 2 eller 3")  #Funkar inte 
+                        print("Skriv rätt siffra 1, 2 eller 3")
                                       
 def main():
     Player_1=Player(100,20,1,100)

@@ -1,13 +1,16 @@
 from Player import *
 import os 
 import time
-# from Äventyrsspel.Player import Player_1
+from Player import Player_1
+from Äventyrsspel.Player import Player
 class Butik_items:
   def __init__(self, namn, bonus_strength, bonus_hp):
     self.namn = namn
     self.bonus_strength = bonus_strength
     self.bonus_hp = bonus_hp
 
+
+#Plåstern lägg inte till ryggsäcken utan Player_1 får bonus_hp direkt efter köpet
   def köp_plåster(self):
     köp_plåster = input(""" 
             
@@ -53,57 +56,46 @@ class Butik_items:
     return Player_1
   
   def yxa(self):
-        print("""
-    Yxor:                               
+    os.system('cls')
+    köp_yxa = input("""                             
         /\ 
-    //`-||-'1\'
-    (|-=||=- |)                          |==================|
-    \L,-||-.//                           |Namn = Mehdis Yxa |
-    \L,-||-.//                           |Namn =  Yxa       |
-    `   ||  '                            |Pris = 200$       |
+    //`-||-'1)
+    (|-=||=- |)                          
+    \L,-||-.//                           |==================|
+     \L ||-//                            |Namn =  Yxa       |
+        ||                               |Pris = 200$       |
         ||                               |Strength_bonus = 5|
         ||                               |==================|
         ||  
         ||   
         ||
         ()
+           Vill du köpa?
+            1) Köp
+            2) Tillbaka
             """)
-        input("sijdbsovnodnvs")
-        os.system('cls')
-        return Player_1
-  
-  def skjutvapen(self):
-    print("""
-    Skjutvapen:
-            _________
-            /'        /|
-            /         / |_
-        /         /  //|                 |====================|
-        /_________/  ////|               |Namn = KSP 58       |
-        |   _ _    | 8o////|             |Pris = 1000$        |                  
-        |   _ _    | 8o////|             |Strength_bonus = +20|   
-        | /'// )_  |   8///|             |====================|
-        |/ // // ) |   8o///|                
-        / // // //,|  /  8//|           
-        / // // /// | /   8//|
-    / // // ///__|/    8//|
-    /.(_)// /// |       8///|
-    (_)' `(_)//| |       8////|___________
-    (_) /_\ (_)'| |        8///////////////
-    (_) \"/ (_)'|_|         8/////////////
-    (_)._.(_) d' Hb         8oooooooopb'
-    `(_)'  d'  H`b
-            d'   `b`b
-            d'     H `b
-        d'      `b `b
-        d'           `b
-        d'             `b
-           
-        |
-        |======|
-            """)
-    input("Hjsicndaonca")
-    os.system('cls')
+    while True:
+        if köp_yxa == "1":
+            if Player_1.pengar < 200:
+                os.system('cls')
+                print("Du har för lågt saldo!!. Du kan inte köpa yxan")
+                input("Okej? [ENTER]")
+                return Player_1
+            else:
+                os.system('cls')
+                Player_1.pengar -= 200
+                yxa_info = {"namn":"Yxa", "strength_bonus":5}
+                Player.lägg_till_inventoryt(yxa_info, Yxa)
+                Player_1.STR += Yxa.bonus_strength
+                print("Yxan kostade 200$")
+                time.sleep(0.5)
+                print("Yxan lades till din ryggsäck")
+                input("Tryck [ENTER]")
+                return Player_1
+        elif köp_yxa == "2":
+            break
+        else:
+            köp_yxa = input("Ogiltigt svar, skriv rätt : ")
     return Player_1
   
   def butik(self):
@@ -119,8 +111,8 @@ class Butik_items:
 ====================================================
     Här finnns olika hyllor vilken väljer du? 
 ====================================================
-        1) yxor              3) Medicin 
-        2) Skjutvapen        4) tillbaka 
+        1) yxor              3) Tillbaka 
+        2) Medicin     
         """)
             val_shelf = input("\n Vad väljer du? ")
             if val_shelf == "1":
@@ -129,22 +121,17 @@ class Butik_items:
 
             elif val_shelf == "2":
                 os.system('cls')
-                Butik_items.skjutvapen(Player_1)
+                Butik_items.köp_plåster(Player_1)
 
             elif val_shelf == "3":
                 os.system('cls')
-                Butik_items.köp_plåster(Player_1)
-
-            elif val_shelf == "4":
-                os.system('cls')
-                return Player_1
+                break
             else:
                 os.system('cls')
                 print("Välj rätt siffta")
             val_shelf = ""
 
 Plåster = Butik_items("Plåster", None, 10)
-Ksp = Butik_items("KSP-58", 5, None)
 Yxa = Butik_items("Yxa", 3, None)
 
 

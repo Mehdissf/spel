@@ -14,4 +14,3 @@ Gremlin=Item("Gremlin",7)
 
 kista = [svärd, spjut, pilbåge, sten, Slangbella, Kannon, Gremlin]
 valt_item = random.choice(kista)
-
