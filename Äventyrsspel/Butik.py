@@ -87,11 +87,10 @@ class Butik_items:
                 return Player_1
             else:
                 os.system('cls')
-                Player_1.pengar -= 200
+                # Player_1.pengar -= 200
                 # man betalar ändå om man inte köper der haha
                 yxa_info = {"namn":"Yxa", "strength_bonus":5}
                 Player.lägg_till_inventoryt(yxa_info, Yxa)
-
                 return Player_1
         elif köp_yxa == "2":
             break
@@ -131,6 +130,8 @@ class Butik_items:
                 os.system('cls')
                 print("Välj rätt siffta")
             val_shelf = ""
+
+
 
 Plåster = Butik_items("Plåster", None, 10)
 Yxa = Butik_items("Yxa", 3, None)

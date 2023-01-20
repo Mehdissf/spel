@@ -4,7 +4,23 @@ from Player import *
 from monster import *
 from fälla import *
 from Player import *
+import sys
 os.system('cls')
+# def game_over():
+#         if Player_1.HP <= 0:
+#             print("Du dog.")
+#             while True:
+#                 if Player_1.pengar > 500:
+#                     betala_fortsätta = input("Vill du betala 500$ för att komma tillbaka till livet?: (ja/nej) ")
+#                     if betala_fortsätta.lower() == "ja":
+#                         Player_1.pengar -= 500
+#                         Player_1.HP += 100
+#                         return Player_1
+#                     elif betala_fortsätta.lower() == "nej":
+#                         sys.exit()
+#                     else:
+#                         print("Ogiltigt val.")
+#                     sys.exit()
 def dörrar(Player_1):
     while True:
         print("""
@@ -45,16 +61,25 @@ def dörrar(Player_1):
             os.system('cls')
         elif val == "1":
             os.system('cls')
-            Player.falla(Player_1)
+            Player_1 = Player.falla(Player_1)
+            if Player_1.HP <= 0:
+                print("Du dog. Sämst")
+                sys.exit()
         elif val =="2":
             os.system('cls')
-            Player.strid(Player_1, valtt_monster)
+            Player.strid(Player_1)
+            
+
+        if Player_1.HP <= 0:
+            print("Du dog. Sämst")
+            sys.exit()
         elif val =="3":
             os.system('cls')
             Player.kista_scen(Player_1)
         else:
             os.system('cls')
-            print("Välj rätt värde '1', '2, '3', '[b] för att backa' eller [s] för att se din nuvarande status")   
+            print("Välj rätt värde '1', '2, '3', '[b] för att backa' eller [s] för att se din nuvarande status")
+           
 
 def start(Player_1):
                 while True:  
@@ -98,8 +123,7 @@ def start(Player_1):
                                
                     else: 
                         os.system('cls')
-                        print("Skriv rätt siffra 1, 2 eller 3")  #Funkar inte 
-                                      
+                        print("Skriv rätt siffra 1, 2 eller 3")  #                 
 def main():
     Player_1=Player(100,20,1,100)
     while True:

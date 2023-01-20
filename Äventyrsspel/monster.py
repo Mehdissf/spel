@@ -9,59 +9,59 @@ class Monster():
 
 
     def monster_egenskaper(self):
-        print(f"Du har stött på monstret {valtt_monster.namn}, han är en farlig varelse och här nedan ser du hans status")
-        print(f"""{valtt_monster.figur}""") #ser knasigt ut
-        print(f'Monstrets namn {valtt_monster.namn}')        
-        print(f'Styrka {valtt_monster.STR}')
-        print(f'HP {valtt_monster.HP}')
+        print(f"Du har stött på monstret {self.namn}, han är en farlig varelse och här nedan ser du hans status")
+        print(f"""{self.figur}""") #ser knasigt ut
+        print(f'Monstrets namn {self.namn}')        
+        print(f'Styrka {self.STR}')
+        print(f'HP {self.HP}')
 
 
 
-Elliot_figur = ["""
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMWMMMMMMMM
-MMMMMMMMMMMMWNK0kxddddxkO0XWMMMMMMMMMMMM
-MMMMMMMMWKxl;'...,,;;,,'...,cd0NMMMMMMMM
-MMMMMWKd;.   ,oOXNWWWWWX0xc.  .'lONWMMMM
-WMMWXo.    'kNMMMMMMMMMMMMW0c.   .;OWWWM
-MMW0,     :KMMMMMMWWWMMMMMWWNd.    .oNWM
-MW0'     ;KMMMMMMMMMMMMMMMMMWWd.    .oNM
-MX:     .kMMMMMMMMMMMMMMMMMMMMX:     .kM
-Mk.     ;XMMMMMMMMMMMMMMMMMMMWMx.     lW
-Mx.     lWMMMMMMMMMMMMMMMMMMMMMO'     :N
-Mx.     lWMMMMMMMMMMMMMMMMMMMWMO.     :N
-MK,     cNMMMMMMMMMMMMMMMMMMMMMx.     dM
-MWd.    .OMMMMMMMMMMMMMMMMMMWMNc     ;KM
-MMNl.    :XMMMMMMMMMMMMMMMWMMWx.    ,0WW
-MMMNx.    cXMMMMMMMMMMMMMMMWWk.   .cKMMM
-MMMWWKo'   ,xXWMMMMMMMMMMMW0c.  .:ONMMWM
-O0WWWMWXkl,..'l0MMMMMMMMNx;..':dKWMWWMXk
-:.xKNWWWWWNKd. lWMMMMMMMO..c0XWWWWWNKO:'
-c  .',;;;;,;,. :XMMMMMWMx. .;,;,,,,'.. .
-l              ,KMMMMMMMo              .
-x,'''''''''''''lKMMMMMMWx,'''''''''''''c
-WWNNWNWWWWWWWWWWWMMMMMMMWNNWWNWWWWWNNWWW
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-"""]
+Elliot_figur = """
+                   (    )
+                  ((((()))
+                  |o\ /o)|
+                  ( (  _')
+                   (._.  /\__
+                  ,\___,/ '  ')
+    '.,_,,       (  .- .   .    )
+     \   \\     ( '        )(    )
+      \   \\    \.  _.__ ____( .  |
+       \  /\\   .(   .'  /\  '.  )
+        \(  \\.-' ( /    \/    \)
+         '  ()) _'.-|/\/\/\/\/\|
+             '\\ .( |\/\/\/\/\/|
+               '((  \    /\    /
+               ((((  '.__\/__.')
+                ((,) /   ((()   )
+                 "..-,  (()("   /
+            pils  _//.   ((() ."
+          _____ //,/" ___ ((( ', ___
+                           ((  )
+                            / /
+                          _/,/'
+                        /,/,"
+"""
 
-Hitler_figur = [""" 
-      *********
+Borat_figur = """ 
+      @@@@@@@@@
       | ^   ^ |
      @ (o) (o) @
       |   <   |
-      |   #   |
-      |  ___  | 
+      |  ===  |
+      | \___/ | 
        \_____/
      ____|  |____
     /    \__/    1
-   /              1
-  /\_/|        |\_/1
- / /  |        |  \ 1
-( <   |        |   > )
+   /      ()      1
+  /\_/|  /  \  |\_/1
+ / /  |  \  /  |  \ 1
+( <   |   \/   |   > )
  \ \  |        |  / /
   \ \ |________| / /
    \ \|
-"""]
-Gargamel_figur = [""" 
+"""
+Gargamel_figur = """ 
         .-----.
        /       1
    __ /   .-.  .1
@@ -75,17 +75,16 @@ Gargamel_figur = ["""
  /  \|     /\___/
 |    \     \||VV
 |     \     \|,
-|      \     ______)
+|      \     ____)
 \       \  /`
         \(
-"""]
+"""
 
 Elliot= Monster("Elliot", 100, 45, Elliot_figur )
-Hitler= Monster("Hitler", 90, 30, Hitler_figur )
+Borat= Monster("Borat", 90, 30, Borat_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
-lista =[Elliot, Hitler, Gargamel]
-valtt_monster = random.choice(lista)
+
 
 
 

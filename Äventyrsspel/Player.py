@@ -35,7 +35,7 @@ class Player():
                 if utbyte.lower() == "ja":
                     for i, b in enumerate(Player_1.inventory):
                         print(f"{i+1}. {b}")
-                    val = int(input("Vilket föremål vil du byta ut? (Skriv in nummret)"))
+                    val = input("Vilket föremål vil du byta ut mot? (Skriv in nummret)")
                     Player_1.inventory[val-1] = item
                     print(f"Item {val} utbyttes med {item}")
                     input("Aight? [ENTER]")
@@ -87,7 +87,7 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 os.system('cls')
                 return Player_1
                 
-            elif time.time() - start_tid > 5: 
+            elif time.time() - start_tid > 5 : 
                 if vald_fälla == "Lava": #Här vet jag fan inte vad jag ska göra efter man dör asså
                     os.system('cls')
                     Player_1.HP -= Lava.skada
@@ -110,17 +110,20 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                     input("Tryck [ENTER]: ")
                     os.system('cls')
                     return Player_1
+                else:
+                    pass
+                
+                if Player_1.HP <= 0:
+                    print("Nu är det dags att ge upp i livet, vännen!!! Du dog!!!!.")
+                    sys.exit()
                 return Player_1
-            else: #funkar inmt
+            else:
                 print("Försök igen ")
-        if Player_1.HP <= 0:
-            print("Spelaren har dött! Spelet är över.")
-            sys.exit()
-        else:
-            return Player_1
 
-    def strid(self, valtt_monster):
+    def strid(self):
         while True:
+            lista =[Elliot, Borat, Gargamel]
+            valtt_monster = random.choice(lista)
             Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valtt_monster)
             print(valtt_monster)
@@ -156,23 +159,12 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
             elif val == "2":
                 os.system('cls')
                 break
-            elif Player_1.HP <= 0:
-                print("Du dog.")
-                if Player_1.pengar > 500:
-                    betala_fortsätta = input("Vill du betala 500$ för att komma tillbaka till livet?: (ja/nej) ")
-                    if betala_fortsätta.lower() == "ja":
-                        Player_1.pengar -= 500
-                        Player_1.HP += 100
-                        return Player_1
-                    elif betala_fortsätta.lower() == "nej":
-                        sys.exit()
-                    else:
-                        print("Ogiltigt val.")
-                sys.exit()
             else:
                 print("Ogiltigt val.")
     
     def kista_scen(self):
+        kista = [svärd, spjut, pilbåge, sten, Slangbella, Kannon, Gremlin]
+        valt_item = random.choice(kista)
         os.system('cls')
         print("Du har hittat en kista!!!")
         input("Fortsätt till kistan?? [ENTER]")
@@ -187,6 +179,6 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
 
 
     
-Player_1=Player(100,25,1,100)
+Player_1=Player(1,25,1,100)
 ursprungliga_HP = Player_1.HP
 
