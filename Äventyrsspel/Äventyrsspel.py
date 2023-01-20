@@ -48,7 +48,7 @@ def dörrar(Player_1):
             Player.falla(Player_1)
         elif val =="2":
             os.system('cls')
-            Player.strid(Player_1)
+            Player.strid(Player_1, valtt_monster)
         elif val =="3":
             os.system('cls')
             Player.kista_scen(Player_1)

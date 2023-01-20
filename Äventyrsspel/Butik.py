@@ -19,10 +19,12 @@ class Butik_items:
 { : : : : : :|::::|: : : : : : }         |Namn = plåster |
  \ : : : : : |::::| : : : : : /          |Pris = 20$     |
    ==========================/           |HP_bonus = +10 |
-                                         |===============|
+===============================          |===============|
             Vill du köpa?
             1) Köp
             2) Tillbaka
+===============================            
+
                     """)
     while True:
         if köp_plåster == "1":
@@ -58,21 +60,23 @@ class Butik_items:
   def yxa(self):
     os.system('cls')
     köp_yxa = input("""                             
-        /\ 
-    //`-||-'1)
-    (|-=||=- |)                          
-    \L,-||-.//                           |==================|
-     \L ||-//                            |Namn =  Yxa       |
-        ||                               |Pris = 200$       |
-        ||                               |Strength_bonus = 5|
-        ||                               |==================|
-        ||  
-        ||   
-        ||
-        ()
-           Vill du köpa?
-            1) Köp
-            2) Tillbaka
+    /\ 
+//`-||-'1)
+(|-=||=- |)                          
+\L,-||-.//                           |==================|
+ \L ||-//                            |Namn =  Yxa       |
+    ||                               |Pris = 200$       |
+    ||                               |Strength_bonus = 5|
+    ||                               |==================|
+    ||  
+    ||   
+    ||
+    ()
+============================= 
+        Vill du köpa?
+        1) Köp
+        2) Tillbaka
+=============================        
             """)
     while True:
         if köp_yxa == "1":
@@ -84,13 +88,10 @@ class Butik_items:
             else:
                 os.system('cls')
                 Player_1.pengar -= 200
+                # man betalar ändå om man inte köper der haha
                 yxa_info = {"namn":"Yxa", "strength_bonus":5}
                 Player.lägg_till_inventoryt(yxa_info, Yxa)
-                Player_1.STR += Yxa.bonus_strength
-                print("Yxan kostade 200$")
-                time.sleep(0.5)
-                print("Yxan lades till din ryggsäck")
-                input("Tryck [ENTER]")
+
                 return Player_1
         elif köp_yxa == "2":
             break

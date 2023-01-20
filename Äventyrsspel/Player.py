@@ -17,24 +17,39 @@ class Player():
     def lägg_till_inventoryt(self, item):
         if len(Player_1.inventory) < 5:
             Player_1.inventory.append(item)
-            print(f"Du fick {item} i din ryggsäck")
-
+            Player_1.STR += item.bonus_strength #vet ej om detta funkar
+            print(f"Du fick {item.namn} i din ryggsäck som ger dig +{item.bonus_strength} STR")
+                # if item from butik:
+                #     Player_1.pengar -= item.pris
+                #     print("blablabla")
+                #     print(f"{item.namn} kostade {item.pris}$")
+                #     time.sleep(0.5)
+                #     print(f"{item.namn} lades till din ryggsäck")
+                #     input("Tryck [ENTER]")
+            input("Aight? [ENTER]")
+            os.system('cls')
         else:
-            utbyte = input("Vill du byta ut en item i din ryggsäck? (ja/nej ")
-            if utbyte.lower() == "ja":
-                for i, b in enumerate(Player_1.inventory):
-                    print(f"{i+1}. {b}")
-                val = int(input("Vilket föremål vil du byta ut? (Skriv in nummret)"))
-                Player_1.inventory[val-1] = item
-                print(f"Item {val} utbyttes med {item}")
-            else:
-                print("Din ryggsäck är full. Du kan tyvärr ine få det föremålet!!!")
-
-    def total_STR(self):
-        total_STR = self.strength
-        for item in self.inventory:
-            total_STR += item.bonus_strength
-        return total_STR
+            while True:
+                print("Din ryggsäck verkar vara full, vill du byta ut en item i din ryggsäck?")
+                utbyte = input("(ja/nej ")
+                if utbyte.lower() == "ja":
+                    for i, b in enumerate(Player_1.inventory):
+                        print(f"{i+1}. {b}")
+                    val = int(input("Vilket föremål vil du byta ut? (Skriv in nummret)"))
+                    Player_1.inventory[val-1] = item
+                    print(f"Item {val} utbyttes med {item}")
+                    input("Aight? [ENTER]")
+                    os.system('cls')
+                    return Player_1
+                elif utbyte.lower() == "nej":
+                    os.system('cls')
+                    print("Alright! ")
+                    print("You do you!!")
+                    break
+                else:
+                    os.system('cls')
+                    print("Ogiltigt val!!!!")
+            return Player_1
 
     def player_egenskaper(self):
         print(f"HP {Player_1.HP}")
@@ -104,10 +119,8 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
         else:
             return Player_1
 
-    def strid(self):
+    def strid(self, valtt_monster):
         while True:
-            lista =[Elliot, Hitler, Gargamel]
-            valtt_monster = random.choice(lista)
             Player.player_egenskaper(Player_1)
             Monster.monster_egenskaper(valtt_monster)
             print(valtt_monster)
@@ -123,56 +136,54 @@ Du har hamnat i ''''{vald_fälla.namn}''' nu i Boräs på grund av alla dina of�
                 if valtt_monster.STR > Player_1.STR:
                     os.system('cls')
                     Player_1.HP -= 10
-                    print("Monstret var starkare därför förlorade du. Du har nu", Player_1.HP, "HP kvar.")
+                    print(f"Du förlorade striden mot {valtt_monster.namn}", f"{Player_1.HP} HP kvar nu")
+                    input()
+                    os.system('cls')
                     return Player_1
 
                 elif valtt_monster.STR < Player_1.STR:
                     os.system('cls')
                     Player_1.LVL += 1
                     print("Du vann striden mot monstret! Du gick upp ett LVL och är nu LVL", Player_1.LVL)
-                    print(valt_monster.namn + " dog.")
+                    print(valtt_monster.namn + " dog.")
+                    input()
+                    os.system('cls')
                     return Player_1
                 else:
                     os.system('cls')
                     print("Striden resulterar i en oavgjord match.")
                     return Player_1
-
             elif val == "2":
                 os.system('cls')
                 break
-            #vet inte hur jag ska avsluta spelet om spelarens HP går mot 0
-            elif  Player_1.HP <= 0:
-                print("Du har dött.")
-                if  Player_1.pengar > 500:
-                    Vill_du_betala_för_att_köra_igen = input("Betla 500$ för att fortsätta spela: \n Ja/Nej: ")
-                    if Vill_du_betala_för_att_köra_igen == "Ja":
+            elif Player_1.HP <= 0:
+                print("Du dog.")
+                if Player_1.pengar > 500:
+                    betala_fortsätta = input("Vill du betala 500$ för att komma tillbaka till livet?: (ja/nej) ")
+                    if betala_fortsätta.lower() == "ja":
                         Player_1.pengar -= 500
                         Player_1.HP += 100
                         return Player_1
-                    elif Vill_du_betala_för_att_köra_igen == "Nej":
+                    elif betala_fortsätta.lower() == "nej":
                         sys.exit()
                     else:
-                        print("Fel! skriv rätt!!")
-                sys.exit()       
+                        print("Ogiltigt val.")
+                sys.exit()
             else:
-                os.system('cls')
-                print("Ogiltigt val! Skriv rätt")
-        return Player_1
+                print("Ogiltigt val.")
     
     def kista_scen(self):
         os.system('cls')
         print("Du har hittat en kista!!!")
         input("Fortsätt till kistan?? [ENTER]")
+        os.system('cls')
         valt_item_info = {f"namn: {valt_item.namn}", f"STR_bonus: {valt_item.bonus_strength}"}
         Player.lägg_till_inventoryt(valt_item_info, valt_item)
-        Player_1.STR += valt_item.bonus_strength #måste göra så att om item fick plats i ryggsäcken då ska den ge STR_bonus
 
     def ryggsäck (self):
         print("Din ryggsäck: ")
         for i in range(len(Player_1.inventory)):
             print(f"{i + 1}. {Player_1.inventory[i]}")
-            if len(Player_1.inventory) == 0:
-                print("Din ryggsäck är tom")
 
 
     

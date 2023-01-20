@@ -80,7 +80,7 @@ Gargamel_figur = ["""
         \(
 """]
 
-Elliot= Monster("Elliot", 100, 50, Elliot_figur )
+Elliot= Monster("Elliot", 100, 45, Elliot_figur )
 Hitler= Monster("Hitler", 90, 30, Hitler_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
