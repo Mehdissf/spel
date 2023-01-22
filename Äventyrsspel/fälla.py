@@ -6,7 +6,7 @@ class Fälla():
         self.skada = skada
     
    
-Lava = Fälla("Lava", 100)
+Lava = Fälla("Lava", 90)
 Helvete = Fälla("Helvete", 70)
 Spökhus = Fälla("Spökhus", 30)
 
