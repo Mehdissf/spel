@@ -10,7 +10,6 @@ class Butik_items:
     self.bonus_hp = bonus_hp
 
 
-#Plåstern lägg inte till ryggsäcken utan Player_1 får bonus_hp direkt efter köpet
   def köp_plåster(self):
     köp_plåster = input(""" 
             

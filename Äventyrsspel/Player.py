@@ -15,7 +15,7 @@ class Player():
         self.inventory = []
     def game_over(Player_1):
         if Player_1.HP <= 0:
-            print("Vila i fred!!! Du dog")
+            print("Vila i frid!!! Du dog")
             sys.exit()
     def vinst(Player_1):
         if Player_1.LVL == 10:
