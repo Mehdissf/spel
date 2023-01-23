@@ -38,6 +38,7 @@ def dörrar(Player_1):
         val = input()
         if val == "b":
             os.system('cls')
+            break
 
         elif val == "s":
             os.system('cls')
@@ -54,6 +55,7 @@ def dörrar(Player_1):
             os.system('cls')
             Player_1 = Player.strid(Player_1)
             Player.game_over(Player_1)
+            Player.vinst(Player_1)
 
         elif val=="3":
             os.system('cls')
@@ -147,6 +149,8 @@ def main():
     Så skriv in rätt nu tack 
 ================================================================================================================
                 """)
+        
+
 
 main() 
 

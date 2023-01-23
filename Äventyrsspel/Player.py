@@ -17,10 +17,18 @@ class Player():
         if Player_1.HP <= 0:
             print("Vila i fred!!! Du dog")
             sys.exit()
+    def vinst(Player_1):
+        if Player_1.LVL == 10:
+            print("Du vann spelet!! Grattis!!!")
+            print("Du hade: ")
+            time.sleep(1)
+            Player.player_egenskaper(Player_1)
+            sys.exit()
+        
     def l채gg_till_inventoryt(self, item):
         if len(Player_1.inventory) < 5:
             Player_1.inventory.append(item)
-            Player_1.STR += item.bonus_strength #vet ej om detta funkar
+            Player_1.STR += item.bonus_strength
             print(f"Du fick {item.namn} i din ryggs채ck som ger dig +{item.bonus_strength} STR")
             input("Aight? [ENTER]")
             os.system('cls')
@@ -131,6 +139,7 @@ Du har hamnat i ''''{vald_f채lla.namn}''' nu i Bor채s p책 grund av alla dina of�
 =================================================================
             """)
             val = input()
+            os.system('cls')
             if val == "1":
                 if valtt_monster.STR > Player_1.STR:
                     os.system('cls')

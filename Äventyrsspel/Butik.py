@@ -48,7 +48,7 @@ class Butik_items:
                     print(f"Du har {Player_1.HP} HP nu")
                     time.sleep(0.5)
                     print(f"Pengar kvar: {Player_1.pengar}")
-                    input("Tryck enter för att gå vidare")
+                    input("Tryck [ENTER]")
                     break
         elif köp_plåster == "2":
             break
