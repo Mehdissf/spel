@@ -23,6 +23,10 @@ class Player():
             print("Du hade: ")
             time.sleep(1)
             Player.player_egenskaper(Player_1)
+            print("Din belöning på värdet 1.000.000 spänn finns hos jag och Elliot\n du kan alltid komma och hämta")
+            time.sleep(4)
+            os.system('cls')
+            print("Hej då")
             sys.exit()
         
     def lägg_till_inventoryt(self, item):
@@ -33,22 +37,30 @@ class Player():
             input("Aight? [ENTER]")
             os.system('cls')
         else:
-            while True:
+            hoppa_ut = False
+            while not hoppa_ut:
                 print("Din ryggsäck verkar vara full, vill du byta ut en item i din ryggsäck?")
                 utbyte = input("(ja/nej ")
                 if utbyte.lower() == "ja":
-                    for i, b in enumerate(Player_1.inventory):
-                        print(f"{i+1}. {b}")
-                    val = int(input("Vilket föremål vil du byta ut mot? (Skriv in nummret)"))
-                    if val > 0 and val <= len(Player_1.inventory):
-                        Player_1.inventory[val-1] = item
-                        print(f"Item {val} utbyttes med {item}")
-                        input("Aight? [ENTER]")
-                        os.system('cls')
-                        return Player_1
-                    else:
-                        print("Skriv in ett giltigt nummer!!!")
-                        
+                        for i, b in enumerate(Player_1.inventory):
+                            print(f"{i+1}. {b}")
+                        val = None
+                        while val is None:
+                            try:
+                                val = int(input("Vilket föremål vill du byta ut mot? (Skriv in nummret)"))
+                                if val > 0 and val <= len(Player_1.inventory):
+                                    Player_1.inventory[val-1] = item
+                                    os.system('cls')
+                                    print(f"Item {val} utbyttes med {item}")
+                                    input("Aight? [ENTER]")
+                                    os.system('cls')
+                                    hoppa_ut = True
+                                                    
+                                else: 
+                                    print("Skriv rätt!!")
+                            except:
+                                print("Skriv in ett nummer, inte en text!")
+                                val = None
                 elif utbyte.lower() == "nej":
                     os.system('cls')
                     print("Alright! ")

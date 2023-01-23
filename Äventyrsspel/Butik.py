@@ -8,6 +8,8 @@ class Butik_items:
     self.namn = namn
     self.bonus_strength = bonus_strength
     self.bonus_hp = bonus_hp
+  def __str__(self):
+    return f"{self.namn} med styrka {self.bonus_strength}"
 
 
 #Plåstern lägg inte till ryggsäcken utan Player_1 får bonus_hp direkt efter köpet
