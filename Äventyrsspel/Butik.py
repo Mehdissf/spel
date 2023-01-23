@@ -48,7 +48,7 @@ class Butik_items:
                     print(f"Du har {Player_1.HP} HP nu")
                     time.sleep(0.5)
                     print(f"Pengar kvar: {Player_1.pengar}")
-                    input("Tryck [ENTER]")
+                    input("Tryck enter för att gå vidare")
                     break
         elif köp_plåster == "2":
             break
@@ -72,6 +72,8 @@ class Butik_items:
     ||   
     ||
     ()
+
+
 ============================= 
         Vill du köpa?
         1) Köp
@@ -97,8 +99,8 @@ class Butik_items:
         else:
             köp_yxa = input("Ogiltigt svar, skriv rätt : ")
     return Player_1
-
-def tabbe(self):
+  
+  def tabbe(self):
     os.system('cls')
     köp_tabbe = input("""                             
 
@@ -144,9 +146,9 @@ def tabbe(self):
             break
         else:
             köp_tabbe = input("Ogiltigt svar, skriv rätt : ")
-    return Player_1  
+    return Player_1
 
-def butik(self):
+  def butik(self):
         Alternativ = ["1","2","3","4"]
         val_shelf = ""
         while val_shelf not in Alternativ:
@@ -160,7 +162,7 @@ def butik(self):
     Här finnns olika hyllor vilken väljer du? 
 ====================================================
         1) yxor              3) Tabbe 
-        2) Medicin           4) Tillbaka 
+        2) Medicin           4) Tillbaka
         """)
             val_shelf = input("\n Vad väljer du? ")
             if val_shelf == "1":
@@ -173,7 +175,6 @@ def butik(self):
             elif val_shelf == "3":
                 os.system('cls')
                 Butik_items.tabbe(Player_1)
-
             elif val_shelf == "4":
                 os.system('cls')
                 break
@@ -185,7 +186,7 @@ def butik(self):
 
 
 Plåster = Butik_items("Plåster", None, 10)
-Yxa = Butik_items("Yxa", 3, None)
+Yxa = Butik_items("Yxa", 5, None)
 Tabbe= Butik_items("Tabbe",8,None)
 
 
