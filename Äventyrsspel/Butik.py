@@ -12,7 +12,6 @@ class Butik_items:
     return f"{self.namn} med styrka {self.bonus_strength}"
 
 
-#Plåstern lägg inte till ryggsäcken utan Player_1 får bonus_hp direkt efter köpet
   def köp_plåster(self):
     köp_plåster = input(""" 
             
@@ -50,7 +49,7 @@ class Butik_items:
                     print(f"Du har {Player_1.HP} HP nu")
                     time.sleep(0.5)
                     print(f"Pengar kvar: {Player_1.pengar}")
-                    input("Tryck [ENTER]")
+                    input("Tryck enter för att gå vidare")
                     break
         elif köp_plåster == "2":
             break
@@ -74,6 +73,8 @@ class Butik_items:
     ||   
     ||
     ()
+
+
 ============================= 
         Vill du köpa?
         1) Köp
@@ -100,6 +101,54 @@ class Butik_items:
             köp_yxa = input("Ogiltigt svar, skriv rätt : ")
     return Player_1
   
+  def tabbe(self):
+    os.system('cls')
+    köp_tabbe = input("""                             
+
+                          
+ ____________________________________________________________
+|                                                           ()   |==================|
+|                              |____________________________|    |Namn =  Tabbe     |
+|                              |                                 |Pris = 400$       |
+|      ________________________|                                 |Strength_bonus = 8|
+|     |]  |                                                      |==================|
+|     |___|     
+|     |
+|     |
+|     |
+|     |
+|___ _|                             
+    
+    
+
+
+
+============================= 
+        Vill du köpa?
+        1) Köp
+        2) Tillbaka
+=============================        
+            """)
+    while True:
+        if köp_tabbe == "1":
+            if Player_1.pengar < 400:
+                os.system('cls')
+                print("Du har för lågt saldo!!. Du kan inte köpa tabben")
+                input("Okej? [ENTER]")
+                return Player_1
+            else:
+                os.system('cls')
+                # Player_1.pengar -= 200
+                # man betalar ändå om man inte köper der haha
+                tabbe_info = {"namn":"Tabbe", "strength_bonus":8}
+                Player.lägg_till_inventoryt(tabbe_info, Tabbe)
+                return Player_1
+        elif köp_tabbe == "2":
+            break
+        else:
+            köp_tabbe = input("Ogiltigt svar, skriv rätt : ")
+    return Player_1
+
   def butik(self):
         Alternativ = ["1","2","3","4"]
         val_shelf = ""
@@ -113,8 +162,8 @@ class Butik_items:
 ====================================================
     Här finnns olika hyllor vilken väljer du? 
 ====================================================
-        1) yxor              3) Tillbaka 
-        2) Medicin     
+        1) yxor              3) Tabbe 
+        2) Medicin           4) Tillbaka
         """)
             val_shelf = input("\n Vad väljer du? ")
             if val_shelf == "1":
@@ -124,8 +173,10 @@ class Butik_items:
             elif val_shelf == "2":
                 os.system('cls')
                 Butik_items.köp_plåster(Player_1)
-
             elif val_shelf == "3":
+                os.system('cls')
+                Butik_items.tabbe(Player_1)
+            elif val_shelf == "4":
                 os.system('cls')
                 break
             else:
@@ -136,7 +187,8 @@ class Butik_items:
 
 
 Plåster = Butik_items("Plåster", None, 10)
-Yxa = Butik_items("Yxa", 3, None)
+Yxa = Butik_items("Yxa", 5, None)
+Tabbe= Butik_items("Tabbe",8,None)
 
 
     

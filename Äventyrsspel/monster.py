@@ -10,7 +10,7 @@ class Monster():
 
     def monster_egenskaper(self):
         print(f"Du har stött på monstret {self.namn}, han är en farlig varelse och här nedan ser du hans status")
-        print(f"""{self.figur}""") #ser knasigt ut
+        print(f"""{self.figur}""") 
         print(f'Monstrets namn {self.namn}')        
         print(f'Styrka {self.STR}')
         print(f'HP {self.HP}')
@@ -59,7 +59,7 @@ Borat_figur = """
 ( <   |   \/   |   > )
  \ \  |        |  / /
   \ \ |________| / /
-   \ \|
+   \ \|        |/ /
 """
 Gargamel_figur = """ 
         .-----.
@@ -81,7 +81,7 @@ Gargamel_figur = """
 """
 
 Elliot= Monster("Elliot", 100, 45, Elliot_figur )
-Borat= Monster("Borat", 90, 30, Borat_figur )
+Borat= Monster("Borat", 90, 65, Borat_figur )
 Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
 
@@ -89,3 +89,4 @@ Gargamel= Monster("Gargamel", 60, 35, Gargamel_figur )
 
 
 
+print("")
