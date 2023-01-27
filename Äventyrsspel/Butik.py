@@ -34,7 +34,7 @@ class Butik_items:
                 print("Du har för lågt saldo!!")
                 return Player_1
             else:
-                if Player_1.HP >= ursprungliga_HP:
+                if Player_1.HP == ursprungliga_HP:
                     os.system('cls')
                     print(f"Ditt HP är max {ursprungliga_HP} du kan inte köpa")
                     input("Tryck [ENTER]")
