@@ -160,7 +160,7 @@ class Butik_items:
 ====================================================
     Här finnns olika hyllor vilken väljer du? 
 ====================================================
-        1) yxor              3) Tabbe 
+        1) Yxa              3) Tabbe 
         2) Medicin           4) Tillbaka
         """)
             val_shelf = input("\n Vad väljer du? ")
