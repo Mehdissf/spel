@@ -90,8 +90,7 @@ class Butik_items:
                 return Player_1
             else:
                 os.system('cls')
-                # Player_1.pengar -= 200
-                # man betalar ändå om man inte köper der haha
+                Player_1.pengar -= 200
                 yxa_info = {"namn":"Yxa", "strength_bonus":5}
                 Player.lägg_till_inventoryt(yxa_info, Yxa)
                 return Player_1
@@ -138,8 +137,7 @@ class Butik_items:
                 return Player_1
             else:
                 os.system('cls')
-                # Player_1.pengar -= 200
-                # man betalar ändå om man inte köper der haha
+                Player_1.pengar -= 400
                 tabbe_info = {"namn":"Tabbe", "strength_bonus":8}
                 Player.lägg_till_inventoryt(tabbe_info, Tabbe)
                 return Player_1
